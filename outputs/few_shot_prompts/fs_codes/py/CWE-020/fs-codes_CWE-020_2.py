@@ -1,4 +1,4 @@
-first:
+ first:
     regex = re.compile("(www|beta).example.com/")
 
     if regex.match(url):
