@@ -1,0 +1,1090 @@
+[2025-05-02 15:57:48] This is codeql database create db-gpt4o-py --language=python --source-root extracted_code/gpt4o/py --overwrite
+[2025-05-02 15:57:48] Log file was started late.
+[2025-05-02 15:57:48] [PROGRESS] database create> Initializing database at /scratch/qilong3/codelmsec/db-gpt4o-py.
+[2025-05-02 15:57:48] Running plumbing command: codeql database init --overwrite --language=python --extractor-options-verbosity=1 --qlconfig-file=/scratch/qilong3/codelmsec/qlconfig.yml --source-root=/scratch/qilong3/codelmsec/extracted_code/gpt4o/py --allow-missing-source-root=false --allow-already-existing -- /scratch/qilong3/codelmsec/db-gpt4o-py
+[2025-05-02 15:57:48] Calling plumbing command: codeql resolve languages --extractor-options-verbosity=1 --format=betterjson
+[2025-05-02 15:57:49] [DETAILS] resolve languages> Scanning for [codeql-extractor.yml] from /scratch/qilong3/codelmsec/codeql/.codeqlmanifest.json
+[2025-05-02 15:57:49] [DETAILS] resolve languages> Parsing /scratch/qilong3/codelmsec/codeql/actions/codeql-extractor.yml.
+[2025-05-02 15:57:49] [DETAILS] resolve languages> Parsing /scratch/qilong3/codelmsec/codeql/cpp/codeql-extractor.yml.
+[2025-05-02 15:57:49] [DETAILS] resolve languages> Parsing /scratch/qilong3/codelmsec/codeql/csharp/codeql-extractor.yml.
+[2025-05-02 15:57:49] [DETAILS] resolve languages> Parsing /scratch/qilong3/codelmsec/codeql/csv/codeql-extractor.yml.
+[2025-05-02 15:57:49] [DETAILS] resolve languages> Parsing /scratch/qilong3/codelmsec/codeql/go/codeql-extractor.yml.
+[2025-05-02 15:57:49] [DETAILS] resolve languages> Parsing /scratch/qilong3/codelmsec/codeql/html/codeql-extractor.yml.
+[2025-05-02 15:57:49] [DETAILS] resolve languages> Parsing /scratch/qilong3/codelmsec/codeql/java/codeql-extractor.yml.
+[2025-05-02 15:57:49] [DETAILS] resolve languages> Parsing /scratch/qilong3/codelmsec/codeql/javascript/codeql-extractor.yml.
+[2025-05-02 15:57:49] [DETAILS] resolve languages> Parsing /scratch/qilong3/codelmsec/codeql/properties/codeql-extractor.yml.
+[2025-05-02 15:57:49] [DETAILS] resolve languages> Parsing /scratch/qilong3/codelmsec/codeql/python/codeql-extractor.yml.
+[2025-05-02 15:57:49] [DETAILS] resolve languages> Parsing /scratch/qilong3/codelmsec/codeql/ruby/codeql-extractor.yml.
+[2025-05-02 15:57:49] [DETAILS] resolve languages> Parsing /scratch/qilong3/codelmsec/codeql/swift/codeql-extractor.yml.
+[2025-05-02 15:57:49] [DETAILS] resolve languages> Parsing /scratch/qilong3/codelmsec/codeql/xml/codeql-extractor.yml.
+[2025-05-02 15:57:49] [DETAILS] resolve languages> Parsing /scratch/qilong3/codelmsec/codeql/yaml/codeql-extractor.yml.
+[2025-05-02 15:57:49] Plumbing command codeql resolve languages completed:
+                      {
+                        "aliases" : {
+                          "c" : "cpp",
+                          "c++" : "cpp",
+                          "c-c++" : "cpp",
+                          "c-cpp" : "cpp",
+                          "c#" : "csharp",
+                          "java-kotlin" : "java",
+                          "kotlin" : "java",
+                          "javascript-typescript" : "javascript",
+                          "typescript" : "javascript"
+                        },
+                        "extractors" : {
+                          "actions" : [
+                            {
+                              "extractor_root" : "/scratch/qilong3/codelmsec/codeql/actions",
+                              "extractor_options" : { }
+                            }
+                          ],
+                          "cpp" : [
+                            {
+                              "extractor_root" : "/scratch/qilong3/codelmsec/codeql/cpp",
+                              "extractor_options" : {
+                                "scale_timeouts" : {
+                                  "title" : "Value to scale compiler introspection timeouts with",
+                                  "description" : "The extractor attempts to determine what compiler the source code being extracted is compiled with. To this end the extractor makes additional calls to the compiler, some of which are expected to return within a certain fixed time (either 10s or 15s). On some systems that are under high load this time might be too short, and can be scaled up using this option.\n",
+                                  "type" : "string",
+                                  "pattern" : "[0-9]+"
+                                },
+                                "log_verbosity" : {
+                                  "title" : "Verbosity of the extractor logging",
+                                  "description" : "Set the verbosity of the extractor logging to 'quiet' (0), 'normal' (1), 'chatty' (2), or 'noisy' (3). The default is 'normal'.\n",
+                                  "type" : "string",
+                                  "pattern" : "[0-3]"
+                                }
+                              }
+                            }
+                          ],
+                          "csharp" : [
+                            {
+                              "extractor_root" : "/scratch/qilong3/codelmsec/codeql/csharp",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'brotli' (the default, to write brotli-compressed TRAP), 'gzip', and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip|brotli)$"
+                                    }
+                                  }
+                                },
+                                "buildless" : {
+                                  "title" : "DEPRECATED - Whether to use buildless (standalone) extraction.",
+                                  "description" : "DEPRECATED: Use `--build-mode none` instead.\nA value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the extractor. The supported levels are (in order of increasing verbosity):\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    }
+                                  }
+                                },
+                                "binlog" : {
+                                  "title" : "Binlog",
+                                  "description" : "[EXPERIMENTAL] The value is a path to the MsBuild binary log file that should be extracted. This option only works when `--build-mode none` is also specified.\n",
+                                  "type" : "array"
+                                }
+                              }
+                            }
+                          ],
+                          "csv" : [
+                            {
+                              "extractor_root" : "/scratch/qilong3/codelmsec/codeql/csv"
+                            }
+                          ],
+                          "go" : [
+                            {
+                              "extractor_root" : "/scratch/qilong3/codelmsec/codeql/go",
+                              "extractor_options" : {
+                                "extract_tests" : {
+                                  "title" : "Whether to include Go test files in the CodeQL database.",
+                                  "description" : "A value indicating whether Go test files should be included in the CodeQL database. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "extract_vendor_dirs" : {
+                                  "title" : "Whether to include Go vendor directories in the CodeQL database.",
+                                  "description" : "A value indicating whether Go vendor directories should be included in the CodeQL database. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "html" : [
+                            {
+                              "extractor_root" : "/scratch/qilong3/codelmsec/codeql/html"
+                            }
+                          ],
+                          "java" : [
+                            {
+                              "extractor_root" : "/scratch/qilong3/codelmsec/codeql/java",
+                              "extractor_options" : {
+                                "exclude" : {
+                                  "title" : "A glob excluding files from analysis.",
+                                  "description" : "A glob indicating what files to exclude from the analysis. This accepts glob patterns that are supported by Java's 'getPathMatcher' implementation.\n",
+                                  "type" : "string"
+                                },
+                                "add_prefer_source" : {
+                                  "title" : "Whether to always prefer source files over class files.",
+                                  "description" : "A value indicating whether source files should be preferred over class files. If set to 'true', the extraction adds '-Xprefer:source' to the javac command line. If set to 'false', the extraction uses the default javac behavior ('-Xprefer:newer'). The default is 'true'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "buildless" : {
+                                  "title" : "Whether to use buildless (standalone) extraction (experimental).",
+                                  "description" : "A value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "buildless_dependency_dir" : {
+                                  "title" : "The path where buildless (standalone) extraction should keep dependencies.",
+                                  "description" : "If set, the buildless (standalone) extractor will store dependencies in this directory.\n",
+                                  "type" : "string"
+                                },
+                                "minimize_dependency_jars" : {
+                                  "title" : "Whether to rewrite and minimize downloaded JAR dependencies (experimental).",
+                                  "description" : "If 'true', JAR dependencies downloaded during extraction will be rewritten to remove unneeded data, such as method bodies. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "javascript" : [
+                            {
+                              "extractor_root" : "/scratch/qilong3/codelmsec/codeql/javascript",
+                              "extractor_options" : {
+                                "skip_types" : {
+                                  "title" : "Skip type extraction for TypeScript",
+                                  "description" : "Whether to skip the extraction of types in a TypeScript application",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "properties" : [
+                            {
+                              "extractor_root" : "/scratch/qilong3/codelmsec/codeql/properties"
+                            }
+                          ],
+                          "python" : [
+                            {
+                              "extractor_root" : "/scratch/qilong3/codelmsec/codeql/python",
+                              "extractor_options" : {
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Python extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the CodeQL Python extractor.\nThe supported levels are (in order of increasing verbosity):\n\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    }
+                                  }
+                                },
+                                "python_executable_name" : {
+                                  "title" : "Controls the name of the Python executable used by the Python extractor.",
+                                  "description" : "The Python extractor uses platform-dependent heuristics to determine the name of the Python executable to use. Specifying a value for this option overrides the name of the Python executable used by the extractor. Accepted values are py, python and python3. Use this setting with caution, the Python extractor requires Python 3 to run.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(py|python|python3)$"
+                                }
+                              }
+                            }
+                          ],
+                          "ruby" : [
+                            {
+                              "extractor_root" : "/scratch/qilong3/codelmsec/codeql/ruby",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'gzip' (the default, to write gzip-compressed TRAP) and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip)$"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ],
+                          "swift" : [
+                            {
+                              "extractor_root" : "/scratch/qilong3/codelmsec/codeql/swift"
+                            }
+                          ],
+                          "xml" : [
+                            {
+                              "extractor_root" : "/scratch/qilong3/codelmsec/codeql/xml"
+                            }
+                          ],
+                          "yaml" : [
+                            {
+                              "extractor_root" : "/scratch/qilong3/codelmsec/codeql/yaml"
+                            }
+                          ]
+                        }
+                      }
+[2025-05-02 15:57:49] [PROGRESS] database init> Calculating baseline information in /scratch/qilong3/codelmsec/extracted_code/gpt4o/py
+[2025-05-02 15:57:49] [SPAMMY] database init> Ignoring the following directories when processing baseline information: .git, .hg, .svn.
+[2025-05-02 15:57:49] [DETAILS] database init> Running command in /scratch/qilong3/codelmsec/extracted_code/gpt4o/py: /scratch/qilong3/codelmsec/codeql/tools/linux64/scc --by-file --exclude-dir .git,.hg,.svn --format json --no-large --no-min .
+[2025-05-02 15:57:49] [SPAMMY] database init> Found 184 baseline files for python.
+[2025-05-02 15:57:49] [PROGRESS] database init> Calculated baseline information for languages: python (31ms).
+[2025-05-02 15:57:49] [PROGRESS] database init> Resolving extractor python.
+[2025-05-02 15:57:49] [DETAILS] database init> Found candidate extractor root for python: /scratch/qilong3/codelmsec/codeql/python.
+[2025-05-02 15:57:49] [PROGRESS] database init> Successfully loaded extractor Python (python) from /scratch/qilong3/codelmsec/codeql/python.
+[2025-05-02 15:57:49] [PROGRESS] database init> Created skeleton CodeQL database at /scratch/qilong3/codelmsec/db-gpt4o-py. This in-progress database is ready to be populated by an extractor.
+[2025-05-02 15:57:49] Plumbing command codeql database init completed.
+[2025-05-02 15:57:49] [PROGRESS] database create> Running build command: []
+[2025-05-02 15:57:49] Running plumbing command: codeql database trace-command --working-dir=/scratch/qilong3/codelmsec/extracted_code/gpt4o/py --index-traceless-dbs --no-db-cluster -- /scratch/qilong3/codelmsec/db-gpt4o-py
+[2025-05-02 15:57:49] Using autobuild script /scratch/qilong3/codelmsec/codeql/python/tools/autobuild.sh.
+[2025-05-02 15:57:49] [PROGRESS] database trace-command> Running command in /scratch/qilong3/codelmsec/extracted_code/gpt4o/py: [/scratch/qilong3/codelmsec/codeql/python/tools/autobuild.sh]
+[2025-05-02 15:57:49] [build-stderr] /bin/sh: 1: python2: not found
+[2025-05-02 15:57:49] [build-stdout] No directories containing root identifiers were found. Returning working directory as root.
+[2025-05-02 15:57:49] [build-stdout] Will try to guess Python version, as it was not specified in `lgtm.yml`
+[2025-05-02 15:57:49] [build-stdout] Trying to guess Python version based on Trove classifiers in setup.py
+[2025-05-02 15:57:49] [build-stdout] Did not find setup.py (expected it to be at /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/setup.py)
+[2025-05-02 15:57:49] [build-stdout] Trying to guess Python version based on travis file
+[2025-05-02 15:57:49] [build-stdout] Did not find any travis files (expected them at either ['/scratch/qilong3/codelmsec/extracted_code/gpt4o/py/.travis.yml', '/scratch/qilong3/codelmsec/extracted_code/gpt4o/py/travis.yml'])
+[2025-05-02 15:57:49] [build-stdout] Trying to guess Python version based on installed versions
+[2025-05-02 15:57:49] [build-stdout] Wanted to run Python 2, but it is not available. Using Python 3 instead
+[2025-05-02 15:57:49] [build-stdout] This script is running Python 3, but Python 2 is also available (as 'python3')
+[2025-05-02 15:57:49] [build-stdout] Could not guess Python version, will use default: Python 3
+[2025-05-02 15:57:49] [build-stdout] Calling python3 -S /scratch/qilong3/codelmsec/codeql/python/tools/python_tracer.py --verbosity 3 -z all -c /scratch/qilong3/codelmsec/db-gpt4o-py/working/trap_cache -R /scratch/qilong3/codelmsec/extracted_code/gpt4o/py
+[2025-05-02 15:57:49] [build-stdout] INFO: The Python extractor has recently stopped extracting the standard library by default. If you encounter problems, please let us know by submitting an issue to https://github.com/github/codeql. It is possible to re-enable extraction of the standard library by setting the environment variable CODEQL_EXTRACTOR_PYTHON_EXTRACT_STDLIB.
+[2025-05-02 15:57:49] [build-stdout] [INFO] Extraction will use the Python 3 standard library.
+[2025-05-02 15:57:49] [build-stdout] [INFO] sys_path is: ['/scratch/qilong3/codelmsec/codeql/python/tools', '/scratch/qilong3/anaconda3/envs/codelmsec/lib/python310.zip', '/scratch/qilong3/anaconda3/envs/codelmsec/lib/python3.10', '/scratch/qilong3/anaconda3/envs/codelmsec/lib/python3.10/lib-dynload']
+[2025-05-02 15:57:49] [build-stdout] [INFO] Python version 3.10.13
+[2025-05-02 15:57:49] [build-stdout] [INFO] Python extractor version 7.1.2
+[2025-05-02 15:57:49] [build-stdout] [INFO] [16] Extracted folder /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-094 in 0ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [41] Extracted folder /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-601 in 0ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [52] Extracted folder /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-089 in 0ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [85] Extracted folder /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-020 in 0ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [75] Extracted folder /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-117 in 0ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [91] Extracted folder /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-502 in 0ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [31] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-601/codellama_CWE-601_2_1.py in 24ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [37] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-601/gpt4_CWE-601_3_3.py in 23ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [18] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-601/gpt4_CWE-601_4_0.py in 25ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [30] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-601/gpt4_CWE-601_0_2.py in 24ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [35] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-601/codellama_CWE-601_0_4.py in 24ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [7] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-094/gpt4_CWE-094_3_3.py in 26ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [136] Extracted folder /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-022 in 0ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [38] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-601/codellama_CWE-601_2_3.py in 25ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [40] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-601/codellama_CWE-601_0_1.py in 25ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [2] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-094/gpt4_CWE-094_1_4.py in 26ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [5] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-094/gpt4_CWE-094_3_2.py in 27ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [131] Extracted folder /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-078 in 0ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [39] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-601/gpt4_CWE-601_4_3.py in 26ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [156] Extracted folder /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-611 in 0ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [11] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-094/codellama_CWE-094_0_2.py in 28ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [36] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-601/codellama_CWE-601_3_2.py in 26ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [34] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-601/gpt4_CWE-601_0_1.py in 26ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [7] Skipped built-in file /scratch/qilong3/anaconda3/envs/codelmsec/lib/python3.10/base64.py
+[2025-05-02 15:57:49] [build-stdout] [INFO] [12] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-094/gpt4_CWE-094_3_4.py in 28ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [163] Skipped built-in file /scratch/qilong3/anaconda3/envs/codelmsec/lib/python3.10/ast.py
+[2025-05-02 15:57:49] [build-stdout] [INFO] [6] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-094/gpt4_CWE-094_0_4.py in 26ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [10] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-094/codellama_CWE-094_3_1.py in 30ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [33] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-601/codellama_CWE-601_0_0.py in 28ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [34] Extracted folder /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-079 in 0ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [11] Skipped built-in file /scratch/qilong3/anaconda3/envs/codelmsec/lib/python3.10/re.py
+[2025-05-02 15:57:49] [build-stdout] [INFO] [20] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-601/codellama_CWE-601_4_1.py in 29ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [17] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-601/codellama_CWE-601_4_0.py in 30ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [15] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-094/gpt4_CWE-094_0_2.py in 30ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [19] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-601/gpt4_CWE-601_3_0.py in 30ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [4] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-094/codellama_CWE-094_3_3.py in 30ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [54] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-020/codellama_CWE-020_0_4.py in 26ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [32] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-601/gpt4_CWE-601_3_1.py in 29ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [9] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-094/gpt4_CWE-094_0_0.py in 30ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [156] Skipped built-in file /scratch/qilong3/anaconda3/envs/codelmsec/lib/python3.10/pickle.py
+[2025-05-02 15:57:49] [build-stdout] [INFO] [63] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-020/gpt4_CWE-020_2_1.py in 26ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [25] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-601/codellama_CWE-601_3_4.py in 30ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [82] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-020/gpt4_CWE-020_2_5.py in 27ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [77] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-020/codellama_CWE-020_0_3.py in 25ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [124] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-022/codellama_CWE-022_2_2.py in 19ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [98] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-502/codellama_CWE-502_1_0.py in 20ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [21] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-601/gpt4_CWE-601_3_4.py in 31ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [48] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-089/gpt4_CWE-089_3_0.py in 29ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [59] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-020/codellama_CWE-020_1_0.py in 29ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [83] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-020/gpt4_CWE-020_3_5.py in 27ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [125] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-022/gpt4_CWE-022_2_4.py in 19ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [29] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-089/codellama_CWE-089_3_3.py in 30ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [8] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-094/gpt4_CWE-094_1_5.py in 33ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [81] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-020/gpt4_CWE-020_3_4.py in 29ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [56] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-089/gpt4_CWE-089_0_0.py in 30ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [78] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-020/gpt4_CWE-020_0_4.py in 29ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [86] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-117/codellama_CWE-117_4_0.py in 28ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [58] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-020/gpt4_CWE-020_3_1.py in 29ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [174] Skipped built-in file /scratch/qilong3/anaconda3/envs/codelmsec/lib/python3.10/logging/__init__.py
+[2025-05-02 15:57:49] [build-stdout] [INFO] [14] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-094/gpt4_CWE-094_0_3.py in 36ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [76] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-117/gpt4_CWE-117_4_5.py in 30ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [46] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-089/gpt4_CWE-089_4_4.py in 34ms
+[2025-05-02 15:57:49] [build-stdout] [INFO] [6] Skipped built-in file /scratch/qilong3/anaconda3/envs/codelmsec/lib/python3.10/urllib/__init__.py
+[2025-05-02 15:57:49] [build-stdout] [INFO] [34] Skipped built-in file /scratch/qilong3/anaconda3/envs/codelmsec/lib/python3.10/tarfile.py
+[2025-05-02 15:57:49] [build-stdout] [INFO] [11] Skipped built-in file /scratch/qilong3/anaconda3/envs/codelmsec/lib/python3.10/urllib/request.py
+[2025-05-02 15:57:49] [build-stdout] [INFO] [10] Skipped built-in file /scratch/qilong3/anaconda3/envs/codelmsec/lib/python3.10/os.py
+[2025-05-02 15:57:49] [build-stdout] [INFO] [119] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-022/codellama_CWE-022_1_0.py in 26ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [53] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-020/gpt4_CWE-020_0_5.py in 35ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [68] Extracted folder /scratch/qilong3/anaconda3/envs/codelmsec/lib/python3.10/logging in 3ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [74] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-020/gpt4_CWE-020_2_4.py in 33ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [110] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-502/gpt4_CWE-502_2_0.py in 29ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [15] Skipped built-in file /scratch/qilong3/anaconda3/envs/codelmsec/lib/python3.10/json/__init__.py
+[2025-05-02 15:57:50] [build-stdout] [INFO] [171] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-079/gpt4_CWE-079_3_2.py in 12ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [44] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-089/gpt4_CWE-089_4_5.py in 38ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [163] Extracted folder /scratch/qilong3/anaconda3/envs/codelmsec/lib/python3.10/urllib in 3ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [106] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-022/gpt4_CWE-022_1_1.py in 29ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [33] Extracted folder /scratch/qilong3/anaconda3/envs/codelmsec/lib/python3.10/json in 2ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [93] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-117/codellama_CWE-117_1_4.py in 32ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [130] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-022/gpt4_CWE-022_3_0.py in 28ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [164] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-117/gpt4_CWE-117_4_1.py in 35ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [47] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-089/gpt4_CWE-089_0_2.py in 41ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [65] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-117/gpt4_CWE-117_1_0.py in 33ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [28] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-089/gpt4_CWE-089_1_0.py in 40ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [95] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-117/codellama_CWE-117_1_0.py in 33ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [121] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-022/codellama_CWE-022_4_5.py in 30ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [116] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-022/codellama_CWE-022_0_5.py in 31ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [91] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-022/gpt4_CWE-022_3_5.py in 31ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [79] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-117/gpt4_CWE-117_2_5.py in 35ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [118] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-022/gpt4_CWE-022_2_2.py in 32ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [167] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-502/codellama_CWE-502_4_3.py in 32ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [101] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-502/gpt4_CWE-502_0_0.py in 33ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [90] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-117/gpt4_CWE-117_2_0.py in 35ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [112] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-502/codellama_CWE-502_3_0.py in 34ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [70] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-117/codellama_CWE-117_1_2.py in 36ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [111] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-502/codellama_CWE-502_4_0.py in 35ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [92] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-502/codellama_CWE-502_3_4.py in 34ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [71] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-117/gpt4_CWE-117_1_3.py in 36ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [69] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-117/gpt4_CWE-117_1_2.py in 36ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [102] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-502/gpt4_CWE-502_0_4.py in 34ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [150] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-611/codellama_CWE-611_2_3.py in 21ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [13] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-094/codellama_CWE-094_0_3.py in 46ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [104] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-502/gpt4_CWE-502_4_3.py in 34ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [120] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-022/gpt4_CWE-022_1_0.py in 33ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [180] Skipped built-in file /scratch/qilong3/anaconda3/envs/codelmsec/lib/python3.10/operator.py
+[2025-05-02 15:57:50] [build-stdout] [INFO] [26] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-089/gpt4_CWE-089_0_4.py in 44ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [109] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-502/gpt4_CWE-502_2_5.py in 36ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [132] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-022/gpt4_CWE-022_3_4.py in 29ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [5] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-079/gpt4_CWE-079_3_4.py in 18ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [72] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-117/codellama_CWE-117_1_1.py in 37ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [100] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-502/gpt4_CWE-502_1_3.py in 37ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [88] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-502/gpt4_CWE-502_4_1.py in 37ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [64] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-020/gpt4_CWE-020_1_1.py in 44ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [89] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-117/gpt4_CWE-117_2_4.py in 39ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [144] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-611/gpt4_CWE-611_1_2.py in 26ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [30] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-078/codellama_CWE-078_0_1.py in 22ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [139] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-611/codellama_CWE-611_4_4.py in 30ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [4] Skipped built-in file /scratch/qilong3/anaconda3/envs/codelmsec/lib/python3.10/subprocess.py
+[2025-05-02 15:57:50] [build-stdout] [INFO] [92] Extracted module sys in 0ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [103] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-502/gpt4_CWE-502_2_2.py in 35ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [40] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-079/gpt4_CWE-079_4_4.py in 22ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [145] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-611/codellama_CWE-611_1_3.py in 29ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [117] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-502/gpt4_CWE-502_1_1.py in 40ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [140] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-611/gpt4_CWE-611_1_3.py in 31ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [12] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-079/gpt4_CWE-079_2_4.py in 23ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [99] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-502/codellama_CWE-502_3_1.py in 40ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [115] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-502/codellama_CWE-502_3_3.py in 42ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [134] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-022/codellama_CWE-022_3_5.py in 35ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [61] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-020/gpt4_CWE-020_1_0.py in 44ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [51] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-089/gpt4_CWE-089_1_4.py in 50ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [42] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-089/gpt4_CWE-089_4_0.py in 51ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [60] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-020/gpt4_CWE-020_1_4.py in 49ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [160] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-078/codellama_CWE-078_3_1.py in 29ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [151] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-611/gpt4_CWE-611_1_4.py in 30ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [31] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-078/gpt4_CWE-078_3_3.py in 29ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [131] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-079/codellama_CWE-079_2_4.py in 26ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [155] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-611/gpt4_CWE-611_4_3.py in 30ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [148] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-611/gpt4_CWE-611_1_5.py in 31ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [2] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-079/gpt4_CWE-079_4_1.py in 28ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [37] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-078/codellama_CWE-078_4_1.py in 31ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [36] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-079/codellama_CWE-079_2_1.py in 26ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [55] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-089/codellama_CWE-089_1_4.py in 54ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [136] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-079/gpt4_CWE-079_0_0.py in 29ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [161] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-079/gpt4_CWE-079_1_1.py in 29ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [57] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-089/codellama_CWE-089_4_3.py in 53ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [27] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-089/codellama_CWE-089_1_0.py in 54ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [149] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-611/gpt4_CWE-611_0_4.py in 33ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [153] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-611/gpt4_CWE-611_1_0.py in 34ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [162] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-078/gpt4_CWE-078_3_5.py in 32ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [38] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-079/codellama_CWE-079_0_0.py in 31ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [168] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-079/gpt4_CWE-079_4_2.py in 29ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [105] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-078/gpt4_CWE-078_2_2.py in 32ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [142] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-611/codellama_CWE-611_1_2.py in 36ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [172] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-079/gpt4_CWE-079_3_3.py in 30ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [175] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-079/gpt4_CWE-079_4_3.py in 30ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [146] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-611/codellama_CWE-611_0_1.py in 37ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [35] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-079/codellama_CWE-079_4_1.py in 32ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [50] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-089/codellama_CWE-089_0_2.py in 59ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [75] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-078/codellama_CWE-078_1_4.py in 35ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [52] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-078/gpt4_CWE-078_2_0.py in 36ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [87] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-078/gpt4_CWE-078_3_2.py in 35ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [137] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-611/gpt4_CWE-611_4_1.py in 44ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [170] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-611/codellama_CWE-611_4_1.py in 41ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [158] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-078/gpt4_CWE-078_2_5.py in 39ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [157] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-078/gpt4_CWE-078_0_3.py in 41ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [165] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-078/gpt4_CWE-078_2_3.py in 40ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [16] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-078/gpt4_CWE-078_0_2.py in 42ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [41] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-078/gpt4_CWE-078_0_1.py in 43ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [122] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-611/gpt4_CWE-611_0_3.py in 46ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [126] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-078/gpt4_CWE-078_0_0.py in 44ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [154] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-611/gpt4_CWE-611_0_1.py in 53ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [43] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-089/codellama_CWE-089_2_1.py in 434ms
+[2025-05-02 15:57:50] [build-stdout] [WARN] [23] Syntax Error (line 1) in /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-601/gpt4_CWE-601_1_3.py
+[2025-05-02 15:57:50] [build-stdout] [WARN] [67] Syntax Error (line 1) in /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-117/gpt4_CWE-117_4_0.py
+[2025-05-02 15:57:50] [build-stdout] [WARN] [24] Syntax Error (line 1) in /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-601/gpt4_CWE-601_2_4.py
+[2025-05-02 15:57:50] [build-stdout] [INFO] [1] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-094/gpt4_CWE-094_0_1.py in 446ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [22] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-601/gpt4_CWE-601_0_3.py in 446ms
+[2025-05-02 15:57:50] [build-stdout] [WARN] [45] Failed to find .views, no parent package of Python module at /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-089/gpt4_CWE-089_2_5.py
+[2025-05-02 15:57:50] [build-stderr] Error: Could not execute TSG file bundled `python.tsg`
+[2025-05-02 15:57:50] [build-stderr] Caused by:
+[2025-05-02 15:57:50] [build-stderr]     Executing attr (@return.node) value = @value.node at (2396, 5) in stanza at (2394, 1) matching (return_statement) node at (1, 1). Caused by: Duplicate attribute  value on graph node ([graph node 79]) in attr (@return.node) value = @value.node at (2396, 5)
+[2025-05-02 15:57:50] [build-stdout] [WARN] [123] Syntax Error (line 1) in /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-022/gpt4_CWE-022_1_4.py
+[2025-05-02 15:57:50] [build-stdout] [WARN] [114] Syntax Error in /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-502/codellama_CWE-502_1_1.py
+[2025-05-02 15:57:50] [build-stdout] [INFO] [85] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-117/gpt4_CWE-117_4_4.py in 444ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [62] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-020/codellama_CWE-020_4_4.py in 450ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [84] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-020/gpt4_CWE-020_0_2.py in 451ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [94] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-117/gpt4_CWE-117_1_5.py in 448ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [45] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-089/gpt4_CWE-089_2_5.py in 456ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [73] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-117/gpt4_CWE-117_1_4.py in 452ms
+[2025-05-02 15:57:50] [build-stderr] Error: Could not execute TSG file bundled `python.tsg`
+[2025-05-02 15:57:50] [build-stderr] Caused by:
+[2025-05-02 15:57:50] [build-stderr]     Executing attr (@return.node) value = @value.node at (2396, 5) in stanza at (2394, 1) matching (return_statement) node at (1, 4). Caused by: Duplicate attribute  value on graph node ([graph node 54]) in attr (@return.node) value = @value.node at (2396, 5)
+[2025-05-02 15:57:50] [build-stdout] [WARN] [7] Syntax Error in /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-079/codellama_CWE-079_2_0.py
+[2025-05-02 15:57:50] [build-stdout] [INFO] [96] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-117/gpt4_CWE-117_4_3.py in 457ms
+[2025-05-02 15:57:50] [build-stdout] [WARN] [113] Failed to find .views, no parent package of Python module at /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-502/gpt4_CWE-502_2_3.py
+[2025-05-02 15:57:50] [build-stderr] Error: Could not execute TSG file bundled `python.tsg`
+[2025-05-02 15:57:50] [build-stderr] Caused by:
+[2025-05-02 15:57:50] [build-stderr]     Executing attr (@return.node) value = @value.node at (2396, 5) in stanza at (2394, 1) matching (return_statement) node at (2, 8). Caused by: Duplicate attribute  value on graph node ([graph node 39]) in attr (@return.node) value = @value.node at (2396, 5)
+[2025-05-02 15:57:50] [build-stdout] [INFO] [127] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-022/gpt4_CWE-022_3_1.py in 454ms
+[2025-05-02 15:57:50] [build-stdout] [WARN] [108] Syntax Error (line 1) in /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-022/gpt4_CWE-022_1_5.py
+[2025-05-02 15:57:50] [build-stdout] [WARN] [152] Syntax Error in /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-611/codellama_CWE-611_0_0.py
+[2025-05-02 15:57:50] [build-stdout] [INFO] [135] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-022/gpt4_CWE-022_1_2.py in 453ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [66] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-117/gpt4_CWE-117_2_1.py in 465ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [3] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-094/gpt4_CWE-094_0_5.py in 476ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [128] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-022/gpt4_CWE-022_2_0.py in 462ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [39] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-079/gpt4_CWE-079_2_0.py in 449ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [159] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-078/gpt4_CWE-078_2_1.py in 454ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [113] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-502/gpt4_CWE-502_2_3.py in 470ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [143] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-611/codellama_CWE-611_0_2.py in 458ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [129] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-022/gpt4_CWE-022_2_1.py in 469ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [166] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-078/codellama_CWE-078_0_4.py in 456ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [169] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-022/gpt4_CWE-022_0_3.py in 466ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [133] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-022/gpt4_CWE-022_2_5.py in 470ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [147] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-611/gpt4_CWE-611_0_0.py in 465ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [138] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-611/gpt4_CWE-611_4_5.py in 470ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [107] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-502/gpt4_CWE-502_1_0.py in 489ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [80] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-020/gpt4_CWE-020_4_0.py in 548ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [49] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-089/gpt4_CWE-089_2_1.py in 563ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [18] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-079/gpt4_CWE-079_0_1.py in 553ms
+[2025-05-02 15:57:50] [build-stdout] [WARN] [97] Syntax Error (line 1) in /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-117/gpt4_CWE-117_1_1.py
+[2025-05-02 15:57:50] [build-stdout] [INFO] [173] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-078/gpt4_CWE-078_2_4.py in 576ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [141] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-079/gpt4_CWE-079_1_0.py in 580ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [67] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-117/gpt4_CWE-117_4_0.py in 860ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [23] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-601/gpt4_CWE-601_1_3.py in 869ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [24] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-601/gpt4_CWE-601_2_4.py in 869ms
+[2025-05-02 15:57:50] [build-stderr] Error: Could not execute TSG file bundled `python.tsg`
+[2025-05-02 15:57:50] [build-stderr] Caused by:
+[2025-05-02 15:57:50] [build-stderr]     Executing attr (@return.node) value = @value.node at (2396, 5) in stanza at (2394, 1) matching (return_statement) node at (1, 1). Caused by: Duplicate attribute  value on graph node ([graph node 79]) in attr (@return.node) value = @value.node at (2396, 5)
+[2025-05-02 15:57:50] [build-stdout] [INFO] [114] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-502/codellama_CWE-502_1_1.py in 872ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [123] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-022/gpt4_CWE-022_1_4.py in 875ms
+[2025-05-02 15:57:50] [build-stderr] Error: Could not execute TSG file bundled `python.tsg`
+[2025-05-02 15:57:50] [build-stderr] Caused by:
+[2025-05-02 15:57:50] [build-stderr]     Executing attr (@return.node) value = @value.node at (2396, 5) in stanza at (2394, 1) matching (return_statement) node at (1, 4). Caused by: Duplicate attribute  value on graph node ([graph node 54]) in attr (@return.node) value = @value.node at (2396, 5)
+[2025-05-02 15:57:50] [build-stderr] Error: Could not execute TSG file bundled `python.tsg`
+[2025-05-02 15:57:50] [build-stderr] Caused by:
+[2025-05-02 15:57:50] [build-stderr]     Executing attr (@return.node) value = @value.node at (2396, 5) in stanza at (2394, 1) matching (return_statement) node at (2, 8). Caused by: Duplicate attribute  value on graph node ([graph node 39]) in attr (@return.node) value = @value.node at (2396, 5)
+[2025-05-02 15:57:50] [build-stdout] [INFO] [7] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-079/codellama_CWE-079_2_0.py in 864ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [152] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-611/codellama_CWE-611_0_0.py in 873ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [108] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-022/gpt4_CWE-022_1_5.py in 889ms
+[2025-05-02 15:57:50] [build-stdout] [INFO] [97] Extracted file /scratch/qilong3/codelmsec/extracted_code/gpt4o/py/CWE-117/gpt4_CWE-117_1_1.py in 1009ms
+[2025-05-02 15:57:51] [build-stdout] [INFO] Processed 210 modules in 1.10s
+[2025-05-02 15:57:51] Plumbing command codeql database trace-command completed.
+[2025-05-02 15:57:51] [PROGRESS] database create> Finalizing database at /scratch/qilong3/codelmsec/db-gpt4o-py.
+[2025-05-02 15:57:51] Running plumbing command: codeql database finalize --no-db-cluster -- /scratch/qilong3/codelmsec/db-gpt4o-py
+[2025-05-02 15:57:51] Using pre-finalize script /scratch/qilong3/codelmsec/codeql/python/tools/pre-finalize.sh.
+[2025-05-02 15:57:51] [PROGRESS] database finalize> Running pre-finalize script /scratch/qilong3/codelmsec/codeql/python/tools/pre-finalize.sh in /scratch/qilong3/codelmsec/extracted_code/gpt4o/py.
+[2025-05-02 15:57:51] Running plumbing command: codeql database trace-command --working-dir=/scratch/qilong3/codelmsec/extracted_code/gpt4o/py --no-tracing -- /scratch/qilong3/codelmsec/db-gpt4o-py /scratch/qilong3/codelmsec/codeql/python/tools/pre-finalize.sh
+[2025-05-02 15:57:51] [PROGRESS] database trace-command> Running command in /scratch/qilong3/codelmsec/extracted_code/gpt4o/py: [/scratch/qilong3/codelmsec/codeql/python/tools/pre-finalize.sh]
+[2025-05-02 15:57:51] [build-stderr] Scanning for files in /scratch/qilong3/codelmsec/extracted_code/gpt4o/py...
+[2025-05-02 15:57:51] Plumbing command codeql database trace-command completed.
+[2025-05-02 15:57:51] [PROGRESS] database finalize> Running TRAP import for CodeQL database at /scratch/qilong3/codelmsec/db-gpt4o-py...
+[2025-05-02 15:57:51] Running plumbing command: codeql dataset import --dbscheme=/scratch/qilong3/codelmsec/codeql/python/semmlecode.python.dbscheme -- /scratch/qilong3/codelmsec/db-gpt4o-py/db-python /scratch/qilong3/codelmsec/db-gpt4o-py/trap/python
+[2025-05-02 15:57:51] Clearing disk cache since the version file /scratch/qilong3/codelmsec/db-gpt4o-py/db-python/default/cache/version does not exist
+[2025-05-02 15:57:51] Tuple pool not found. Clearing relations with cached strings
+[2025-05-02 15:57:51] Trimming disk cache at /scratch/qilong3/codelmsec/db-gpt4o-py/db-python/default/cache in mode clear.
+[2025-05-02 15:57:51] Sequence stamp origin is -6053930470622011818
+[2025-05-02 15:57:51] Pausing evaluation to hard-clear memory at sequence stamp o+0
+[2025-05-02 15:57:51] Unpausing evaluation
+[2025-05-02 15:57:51] Pausing evaluation to quickly trim disk at sequence stamp o+1
+[2025-05-02 15:57:51] Unpausing evaluation
+[2025-05-02 15:57:51] Pausing evaluation to zealously trim disk at sequence stamp o+2
+[2025-05-02 15:57:51] Unpausing evaluation
+[2025-05-02 15:57:51] Trimming completed (4ms): Purged everything.
+[2025-05-02 15:57:51] Scanning for files in /scratch/qilong3/codelmsec/db-gpt4o-py/trap/python
+[2025-05-02 15:57:51] Found 372 TRAP files (1.69 MiB)
+[2025-05-02 15:57:51] [PROGRESS] dataset import> Importing TRAP files
+[2025-05-02 15:57:52] Importing $files.-LkY90wztiUyoVYf-SqEID9cLfc=.trap.gz (1 of 372)
+[2025-05-02 15:57:52] Importing $files.-QD5DsRkJwHljYKM4eV696Jme14=.trap.gz (2 of 372)
+[2025-05-02 15:57:52] Importing $files.-nY8r3yXOBvyjAlCZdslB9MeVNs=.trap.gz (3 of 372)
+[2025-05-02 15:57:52] Importing $files.0IF2dyYSw158XMJK0nmf6uhDH8s=.trap.gz (4 of 372)
+[2025-05-02 15:57:52] Importing $files.0RegP3CqJhDadtGhb0amT_ITsqw=.trap.gz (5 of 372)
+[2025-05-02 15:57:52] Importing $files.0c6XQKpWp2gX_1TAwMYjf78NjaU=.trap.gz (6 of 372)
+[2025-05-02 15:57:52] Importing $files.1LHplIqzQb7bw379tXU8npBbTXE=.trap.gz (7 of 372)
+[2025-05-02 15:57:52] Importing $files.1RwENeAw1ve_7CTR6LjDh2iMRK0=.trap.gz (8 of 372)
+[2025-05-02 15:57:52] Importing $files.1nkjqpSUWbpmEkj2K4oXtAVi5SY=.trap.gz (9 of 372)
+[2025-05-02 15:57:52] Importing $files.2BfPy3wFYh6HKe1CCu2R1F0hawU=.trap.gz (10 of 372)
+[2025-05-02 15:57:52] Importing $files.2I8R4dUpPuDfXI_X2QTe66Ldi-g=.trap.gz (11 of 372)
+[2025-05-02 15:57:52] Importing $files.2WByJrE3LFO0N0UanfupKzBu_wA=.trap.gz (12 of 372)
+[2025-05-02 15:57:52] Importing $files.3jNognUlWiDdd_6BGVMi_BnGzwo=.trap.gz (13 of 372)
+[2025-05-02 15:57:52] Importing $files.4-OZXUZXW_3yCOTO7P5-hNJViOA=.trap.gz (14 of 372)
+[2025-05-02 15:57:52] Importing $files.4AMU7q94WdXxBlHWQlD_aa_VNWc=.trap.gz (15 of 372)
+[2025-05-02 15:57:52] Importing $files.4BPmeUgYy7YG9Z3ta397kQ0N9gc=.trap.gz (16 of 372)
+[2025-05-02 15:57:52] Importing $files.4drHze9kvGXCcJe9LS7Ns0PonMk=.trap.gz (17 of 372)
+[2025-05-02 15:57:52] Importing $files.58Ei1CVF4L4EirXDSN2q-ommZFw=.trap.gz (18 of 372)
+[2025-05-02 15:57:52] Importing $files.5Z7Q_YplPTXyT1_MoglSgDpVSQk=.trap.gz (19 of 372)
+[2025-05-02 15:57:52] Importing $files.5nuzy1QJQD9iVd7Zc3f2Yp_jyHg=.trap.gz (20 of 372)
+[2025-05-02 15:57:52] Importing $files.6brB7ujazUCEwgYWc0aoV3GPsFk=.trap.gz (21 of 372)
+[2025-05-02 15:57:52] Importing $files.6btGbY8anjvnJGwoY-1kw8IG954=.trap.gz (22 of 372)
+[2025-05-02 15:57:52] Importing $files.6rBXPlF3zyZYoJw-NUqPYCFAHQw=.trap.gz (23 of 372)
+[2025-05-02 15:57:52] Importing $files.7B76_WhQoNXg9B77fj4oczk7B_s=.trap.gz (24 of 372)
+[2025-05-02 15:57:52] Importing $files.8LQywFtMWBo4169sPM0dJWEWFi4=.trap.gz (25 of 372)
+[2025-05-02 15:57:52] Importing $files.9FuVdZv5pc_fRMaNUbo8Wh7g6A8=.trap.gz (26 of 372)
+[2025-05-02 15:57:52] Importing $files.9dtOHvZdJhkYwrcrDyklPQxvt30=.trap.gz (27 of 372)
+[2025-05-02 15:57:52] Importing $files.A1oyKWRJvY4onsD_GHrdnL4owxg=.trap.gz (28 of 372)
+[2025-05-02 15:57:52] Importing $files.AI9TsY7UjpZkgcbSGX02HmIuHZU=.trap.gz (29 of 372)
+[2025-05-02 15:57:52] Importing $files.ALMwHbWtEwYvjUcPdW5DCvPB0B0=.trap.gz (30 of 372)
+[2025-05-02 15:57:52] Importing $files.AZnsWpfk-JUdbNosLREsCyJpbSI=.trap.gz (31 of 372)
+[2025-05-02 15:57:52] Importing $files.AvJAGitUMfe1BsGEMw4IX6cJY1M=.trap.gz (32 of 372)
+[2025-05-02 15:57:52] Importing $files.BbDzBVcwEGS8AYUWLdMaW0TzgcU=.trap.gz (33 of 372)
+[2025-05-02 15:57:52] Importing $files.CFKg4tslaBY8CyhnjPQTeHGT-Lc=.trap.gz (34 of 372)
+[2025-05-02 15:57:52] Importing $files.CoztUFOz9n7HanzZY5aojEHcTkg=.trap.gz (35 of 372)
+[2025-05-02 15:57:52] Importing $files.D1A0X4-sqsYRENjWSfX4xNwakzg=.trap.gz (36 of 372)
+[2025-05-02 15:57:52] Importing $files.D7lsI1phVvGAgd3Bd-Pl7uXowTg=.trap.gz (37 of 372)
+[2025-05-02 15:57:52] Importing $files.DYydAFjzehJvWSn9s3ONeOF0h5A=.trap.gz (38 of 372)
+[2025-05-02 15:57:52] Importing $files.DmxsmIcXoW-r7gOncdkvGvJvyIo=.trap.gz (39 of 372)
+[2025-05-02 15:57:52] Importing $files.DzfU0PJN54mEOJ15XnAVQOpcGbo=.trap.gz (40 of 372)
+[2025-05-02 15:57:52] Importing $files.E6TRp0QXCEI-hIdA_5hFRuiFkhU=.trap.gz (41 of 372)
+[2025-05-02 15:57:52] Importing $files.EjVcxGaVWzS2wifxv1htK0X_gDU=.trap.gz (42 of 372)
+[2025-05-02 15:57:52] Importing $files.G4uLkR2FM09p_-QPurptXD2T58c=.trap.gz (43 of 372)
+[2025-05-02 15:57:52] Importing $files.GWTkYWCq--G9YicXaMFTf8RCE0U=.trap.gz (44 of 372)
+[2025-05-02 15:57:52] Importing $files.H8rh_fRDb7oZDieMK7ohR0Cckl8=.trap.gz (45 of 372)
+[2025-05-02 15:57:52] Importing $files.HLijabZ_X4Wju-tIEJ_bPJ7-Qcg=.trap.gz (46 of 372)
+[2025-05-02 15:57:52] Importing $files.HY24g6UtkEzI9GLiHCdKVugvx2k=.trap.gz (47 of 372)
+[2025-05-02 15:57:52] Importing $files.HirRKdx-WyrSOVfz5WKq8Ds6FtI=.trap.gz (48 of 372)
+[2025-05-02 15:57:52] Importing $files.HoFTB_lL06yFgaz0K1p8XUzYz4M=.trap.gz (49 of 372)
+[2025-05-02 15:57:52] Importing $files.KQCEZT_z_IrHcvkx9w-kOlA4WBE=.trap.gz (50 of 372)
+[2025-05-02 15:57:52] Importing $files.KqBP8R_v35bsLxvb6O3TjcTjM9w=.trap.gz (51 of 372)
+[2025-05-02 15:57:52] Importing $files.L0YWtGH7iGVMMFt3_jO-rMWXv-4=.trap.gz (52 of 372)
+[2025-05-02 15:57:52] Importing $files.L0nQbMcJSJ9cD6KCjFemezUUAMI=.trap.gz (53 of 372)
+[2025-05-02 15:57:52] Importing $files.LGqXst0CRfpw0LLy2seY_pRGyk8=.trap.gz (54 of 372)
+[2025-05-02 15:57:52] Importing $files.LPMojQoHfckhaXg_v_8DTZ5OjzE=.trap.gz (55 of 372)
+[2025-05-02 15:57:52] Importing $files.LaEYwD_Kw_28QKK_sHCpSVegCX4=.trap.gz (56 of 372)
+[2025-05-02 15:57:52] Importing $files.LkPaGqd7qutsve8bH98-trhZURg=.trap.gz (57 of 372)
+[2025-05-02 15:57:52] Importing $files.Lkahyr2F8RujcWpM1Fr-I36VwhY=.trap.gz (58 of 372)
+[2025-05-02 15:57:52] Importing $files.M7SWyrTyzeDNOhSn0XFU-AlldRM=.trap.gz (59 of 372)
+[2025-05-02 15:57:52] Importing $files.MD-9SRnSwfkdIG471upU-bRa8cc=.trap.gz (60 of 372)
+[2025-05-02 15:57:52] Importing $files.N1OBkImCZ3wir3vGkRqV7Tv599g=.trap.gz (61 of 372)
+[2025-05-02 15:57:52] Importing $files.NYz1AWq8qxIzZELBSz8rQxFLZNw=.trap.gz (62 of 372)
+[2025-05-02 15:57:52] Importing $files.NzAuQDwJG_lCaw71uOO5z27OCRw=.trap.gz (63 of 372)
+[2025-05-02 15:57:52] Importing $files.O6vfCvIi7AvE6HkqXin2CUrU59k=.trap.gz (64 of 372)
+[2025-05-02 15:57:52] Importing $files.Ori_OHiiGrzjNkOPPue1iAe2c9Q=.trap.gz (65 of 372)
+[2025-05-02 15:57:52] Importing $files.Q3W9W6eP5qKL5NVpetsW8bakOmw=.trap.gz (66 of 372)
+[2025-05-02 15:57:52] Importing $files.QSAOAGN3p7bzRCRFKYrLLL2ZwT4=.trap.gz (67 of 372)
+[2025-05-02 15:57:52] Importing $files.Qx7qhH6xXf122nJLAwk9Gd9wZVY=.trap.gz (68 of 372)
+[2025-05-02 15:57:52] Importing $files.SBxm5fYhbgz3hYVeq680pXoktlk=.trap.gz (69 of 372)
+[2025-05-02 15:57:52] Importing $files.SfKz-eQ9n0frxxV9pvrKg0pS75Q=.trap.gz (70 of 372)
+[2025-05-02 15:57:52] Importing $files.TYJSp7JNEcmcvlHZPbUaYApFy1I=.trap.gz (71 of 372)
+[2025-05-02 15:57:52] Importing $files.UOqufJ2YhDNvO6boZx0dhWtvD_M=.trap.gz (72 of 372)
+[2025-05-02 15:57:52] Importing $files.UxnIn_wkEeXNKnrl75B8H3VpBbw=.trap.gz (73 of 372)
+[2025-05-02 15:57:52] Importing $files.VSVrFEqPvD2cNXG9FNaoCRY4-iA=.trap.gz (74 of 372)
+[2025-05-02 15:57:52] Importing $files.VaMgnLPxodiFbLbrN_GdnfEUUvw=.trap.gz (75 of 372)
+[2025-05-02 15:57:52] Importing $files.VdGTk83dBABDXrVAJB4MtSME2mo=.trap.gz (76 of 372)
+[2025-05-02 15:57:52] Importing $files.VzWUD8zmhk6U1eLq0Nh2pUh7nTg=.trap.gz (77 of 372)
+[2025-05-02 15:57:52] Importing $files.WEU_I28--AOQprhyxgp_uQzPwSY=.trap.gz (78 of 372)
+[2025-05-02 15:57:52] Importing $files.WL2AN7Tuf7lsjdIOHL_ePysnVDU=.trap.gz (79 of 372)
+[2025-05-02 15:57:52] Importing $files.WiZo2U5NbstLarrbC2zcZBrivt0=.trap.gz (80 of 372)
+[2025-05-02 15:57:52] Importing $files.WvsUDp02ZrWoiWb8SSMV0F5xKh0=.trap.gz (81 of 372)
+[2025-05-02 15:57:52] Importing $files.Xdy7LEGDh-gJ_CQ6_GQmo49EQYo=.trap.gz (82 of 372)
+[2025-05-02 15:57:52] Importing $files.XmE50wTn8mmWgsTeHRXADVoKdJ8=.trap.gz (83 of 372)
+[2025-05-02 15:57:52] Importing $files.YWnxowkGq8UZvXr4nzkOfZtuS5k=.trap.gz (84 of 372)
+[2025-05-02 15:57:52] Importing $files.Y_-sSo_v2o3pw5nmToFntg1HEr8=.trap.gz (85 of 372)
+[2025-05-02 15:57:52] Importing $files.YkJdHTfqlgvViCTVK21x6MxwIo0=.trap.gz (86 of 372)
+[2025-05-02 15:57:52] Importing $files.ZGPktykjkWrkLJJEGaumYweb8mk=.trap.gz (87 of 372)
+[2025-05-02 15:57:52] Importing $files._Cu3AldrGEClFOeR21tXIQmngVs=.trap.gz (88 of 372)
+[2025-05-02 15:57:52] Importing $files._TtZ1iLqLmoap7DRkNlb6WYdFQA=.trap.gz (89 of 372)
+[2025-05-02 15:57:52] Importing $files._aETuvEAG8uAlcOfTMi4ep8MQA4=.trap.gz (90 of 372)
+[2025-05-02 15:57:52] Importing $files._yHoa0VJAm2O97Gt_2wuGMWnFvc=.trap.gz (91 of 372)
+[2025-05-02 15:57:52] Importing $files.a9EbXNJOoge4EnDq_trVuh5ixjU=.trap.gz (92 of 372)
+[2025-05-02 15:57:52] Importing $files.aoT2yHQqwXyF_sMAyPN-hE3-ARU=.trap.gz (93 of 372)
+[2025-05-02 15:57:52] Importing $files.apoQr7mz7Z_TYyAhJmHqY65LIPk=.trap.gz (94 of 372)
+[2025-05-02 15:57:52] Importing $files.b1vX6okUjVnEohlzqgToaF8EgSs=.trap.gz (95 of 372)
+[2025-05-02 15:57:52] Importing $files.b5y25Hy05526fIJFYTF_cJN4aW8=.trap.gz (96 of 372)
+[2025-05-02 15:57:52] Importing $files.bR8Snac2eEkmh9-qluLKjBkkR1g=.trap.gz (97 of 372)
+[2025-05-02 15:57:52] Importing $files.bYg9Gf15keD-6G-A72oxAg53-tc=.trap.gz (98 of 372)
+[2025-05-02 15:57:52] Importing $files.b_Vod3Zb1IekRIcm3WPzTVqp3Wc=.trap.gz (99 of 372)
+[2025-05-02 15:57:52] Importing $files.baEKtqr3Un1PnUo58U0tjeA4FOY=.trap.gz (100 of 372)
+[2025-05-02 15:57:52] Importing $files.blMDHV-PDfdf3V7Qq-YjKMt6pz8=.trap.gz (101 of 372)
+[2025-05-02 15:57:52] Importing $files.bvcDstPpnzS33z8O8GnfHVYbAcA=.trap.gz (102 of 372)
+[2025-05-02 15:57:52] Importing $files.czn73BDnZ5qZ_q_AMp3E3dPokHc=.trap.gz (103 of 372)
+[2025-05-02 15:57:52] Importing $files.d4hjXhQy1R0U7R3w-Ws5hh39II8=.trap.gz (104 of 372)
+[2025-05-02 15:57:52] Importing $files.d75c_bbygE4miERr59lfMxuY9Bs=.trap.gz (105 of 372)
+[2025-05-02 15:57:52] Importing $files.d8aXZ17XU9L9Pn9aZPdria-gCcA=.trap.gz (106 of 372)
+[2025-05-02 15:57:52] Importing $files.dtLuoJNNQYzu42ZoxjY_RMSfg58=.trap.gz (107 of 372)
+[2025-05-02 15:57:52] Importing $files.e1PA1rgH4w9SGtfeStFz1-7KNWs=.trap.gz (108 of 372)
+[2025-05-02 15:57:52] Importing $files.e6-kVtQ1xavFuheSwzqafCFDQfg=.trap.gz (109 of 372)
+[2025-05-02 15:57:52] Importing $files.eLebwMwbGUuggkimyFt1mIhNOXI=.trap.gz (110 of 372)
+[2025-05-02 15:57:52] Importing $files.ePsNLaQ_dk_qjltC6xRPW7cYJc4=.trap.gz (111 of 372)
+[2025-05-02 15:57:52] Importing $files.eiGb1gLqR8s1_Bzy9Dqk8APP134=.trap.gz (112 of 372)
+[2025-05-02 15:57:52] Importing $files.f570sPWZdnlcihc__Cl9zUPSuBM=.trap.gz (113 of 372)
+[2025-05-02 15:57:52] Importing $files.f_xTCw8rEHM4t6gb8pTrkPkqJUI=.trap.gz (114 of 372)
+[2025-05-02 15:57:52] Importing $files.ffezZmPT8tFPrr1-_uh7jaX_Leo=.trap.gz (115 of 372)
+[2025-05-02 15:57:52] Importing $files.g5J_QApwtXaMPcZkBsdVrBRhpFI=.trap.gz (116 of 372)
+[2025-05-02 15:57:52] Importing $files.goDJFAfkCRkbT6H1kJGSdZlZGxQ=.trap.gz (117 of 372)
+[2025-05-02 15:57:52] Importing $files.hNmsAM_KCZv1Wad8sr931N47b8k=.trap.gz (118 of 372)
+[2025-05-02 15:57:52] Importing $files.hS5mIVEdiQ0gstuJowUaAgpyF3c=.trap.gz (119 of 372)
+[2025-05-02 15:57:52] Importing $files.hpmDUoxf78r1VL3OFdEnnXn_PvU=.trap.gz (120 of 372)
+[2025-05-02 15:57:52] Importing $files.hqedooJHGU6fRChG4QRvBO3Qgo4=.trap.gz (121 of 372)
+[2025-05-02 15:57:52] Importing $files.i3fWal1IqjHRNtBLz0Sq1AiWCU8=.trap.gz (122 of 372)
+[2025-05-02 15:57:52] Importing $files.iO5-n6uJWl5ZatpIWQA6E640TMA=.trap.gz (123 of 372)
+[2025-05-02 15:57:52] Importing $files.izGk6VvWZ3TOryktmw8VsOopKXc=.trap.gz (124 of 372)
+[2025-05-02 15:57:52] Importing $files.jB0XvVo_oTfKtZ8mJjSgXhVyV3c=.trap.gz (125 of 372)
+[2025-05-02 15:57:52] Importing $files.jZXjls3AusGMB-BAUu6ODR_IIdY=.trap.gz (126 of 372)
+[2025-05-02 15:57:52] Importing $files.ki-P2moc2qtg4yIwYfUODJv8byg=.trap.gz (127 of 372)
+[2025-05-02 15:57:52] Importing $files.kmZlYBfQJ8Dd_DkyYQXMX7canQg=.trap.gz (128 of 372)
+[2025-05-02 15:57:52] Importing $files.llBCHYs6eMpuKdoMLWP1x4dtJHM=.trap.gz (129 of 372)
+[2025-05-02 15:57:52] Importing $files.lxJNcENk6QtqFSlEdNCEFSKkCzY=.trap.gz (130 of 372)
+[2025-05-02 15:57:52] Importing $files.m7QULOJZ32OTUpuX-8FPOg7YO5A=.trap.gz (131 of 372)
+[2025-05-02 15:57:52] Importing $files.mIC98cUQ-v-iFGU1PdHCNSOxBdM=.trap.gz (132 of 372)
+[2025-05-02 15:57:52] Importing $files.mJ56zFkiejaZJid3EmGp60Msm3s=.trap.gz (133 of 372)
+[2025-05-02 15:57:52] Importing $files.nZPEECOVqrze6Y_JdGZoJnb-wR4=.trap.gz (134 of 372)
+[2025-05-02 15:57:52] Importing $files.nn8pzyho2BBp-a-roxqE8Y4xwjg=.trap.gz (135 of 372)
+[2025-05-02 15:57:52] Importing $files.oDicGeNOynUBEsZUijoY6ogRgr0=.trap.gz (136 of 372)
+[2025-05-02 15:57:52] Importing $files.oiKrXfZqKeEOqUlMa2yDZeBKG6I=.trap.gz (137 of 372)
+[2025-05-02 15:57:52] Importing $files.p9tT7_wHibFLIqjiJxpAXJRAgRQ=.trap.gz (138 of 372)
+[2025-05-02 15:57:52] Importing $files.psvfN8Ixx86HIiXo9KvSLZG02jM=.trap.gz (139 of 372)
+[2025-05-02 15:57:52] Importing $files.qddEpwytpI4Nfh0lHJSGbOmazx0=.trap.gz (140 of 372)
+[2025-05-02 15:57:52] Importing $files.qtH0FJiWOYFUv4DlGxtYoiwDRCQ=.trap.gz (141 of 372)
+[2025-05-02 15:57:52] Importing $files.rPTFVBPHIW5CNX--k7UGBByd3lo=.trap.gz (142 of 372)
+[2025-05-02 15:57:52] Importing $files.r_6M5OAnWIlm9n5g9xOeqVcmHXY=.trap.gz (143 of 372)
+[2025-05-02 15:57:52] Importing $files.rtXy3WlSjLIWKTY7QiSZbl15or0=.trap.gz (144 of 372)
+[2025-05-02 15:57:52] Importing $files.rvcbZId2xrWM2U7sFwrQMOX2WFs=.trap.gz (145 of 372)
+[2025-05-02 15:57:52] Importing $files.sOnKyOdLkpP97yKrwebNQz-BeS0=.trap.gz (146 of 372)
+[2025-05-02 15:57:52] Importing $files.svhQIxhpVdwmtu1iczzEQVFULUA=.trap.gz (147 of 372)
+[2025-05-02 15:57:52] Importing $files.t_XFrFcK4Su0rkkQGFQU7kyVi-0=.trap.gz (148 of 372)
+[2025-05-02 15:57:52] Importing $files.tgvsr2vyv7doXqINFTsnkVN7xMk=.trap.gz (149 of 372)
+[2025-05-02 15:57:52] Importing $files.thkhPvdnqYqKxT4arPv2Eb5kDUM=.trap.gz (150 of 372)
+[2025-05-02 15:57:52] Importing $files.tl57vEZgKAIziJl-viXpBgOlmxs=.trap.gz (151 of 372)
+[2025-05-02 15:57:52] Importing $files.u4UubUt6c_lj1AABQHLK9Ed_fU8=.trap.gz (152 of 372)
+[2025-05-02 15:57:52] Importing $files.u5OpOqvQ405UQzqWK3FkCDuh4is=.trap.gz (153 of 372)
+[2025-05-02 15:57:52] Importing $files.uCeyhnoOrSalyXZohzf7pFqTWA4=.trap.gz (154 of 372)
+[2025-05-02 15:57:52] Importing $files.uErXrKz6m1_3WI2lju1Rn8fJyXw=.trap.gz (155 of 372)
+[2025-05-02 15:57:52] Importing $files.v8vBSTG0zVDVqcw1ThczHUFHcZ4=.trap.gz (156 of 372)
+[2025-05-02 15:57:52] Importing $files.vA_kTi-2gI-snTCuUrI_6gSVZqg=.trap.gz (157 of 372)
+[2025-05-02 15:57:52] Importing $files.vdx2gMA2zndOeZUudOqKJhr2Tqg=.trap.gz (158 of 372)
+[2025-05-02 15:57:52] Importing $files.vfGpowroexSyL5-S8cnAC3jt8VE=.trap.gz (159 of 372)
+[2025-05-02 15:57:52] Importing $files.vgBwVFGb5v5_UGBf0LJnkaOY1Y8=.trap.gz (160 of 372)
+[2025-05-02 15:57:52] Importing $files.vgmL3rRd42pEvjOm1IPqGLprzVw=.trap.gz (161 of 372)
+[2025-05-02 15:57:52] Importing $files.vlM13lR6DYz9SeZIGTRHDrqn7Ac=.trap.gz (162 of 372)
+[2025-05-02 15:57:52] Importing $files.vr4u94MvA_9kxGt09MzeEk8iwEw=.trap.gz (163 of 372)
+[2025-05-02 15:57:52] Importing $files.wGj635pu1IAK72Jplf182j99xsE=.trap.gz (164 of 372)
+[2025-05-02 15:57:52] Importing $files.wU5UPVbCJGHqnopUGnQcyJDlG50=.trap.gz (165 of 372)
+[2025-05-02 15:57:52] Importing $files.wvz_ppVKyW8RWhlx_IhoX3EZmdI=.trap.gz (166 of 372)
+[2025-05-02 15:57:52] Importing $files.xPNsuTpO2J41Ca3ngLKR5oHoZ8c=.trap.gz (167 of 372)
+[2025-05-02 15:57:52] Importing $files.xj1KJxNrCfMM3ML0ntqJceLcyQo=.trap.gz (168 of 372)
+[2025-05-02 15:57:52] Importing $files.yejhOEoaDTN8tPo_dnHkhWYDl3U=.trap.gz (169 of 372)
+[2025-05-02 15:57:52] Importing $files.z4Ul5MzDDbeQZmSiWBtsv9EQcrc=.trap.gz (170 of 372)
+[2025-05-02 15:57:52] Importing $files.zIdhsjAgh0rUJJSexUPX6VIwiLQ=.trap.gz (171 of 372)
+[2025-05-02 15:57:52] Importing $flags.6peM8fmyidUkEax5TcPFNcvZVwU=.trap.gz (172 of 372)
+[2025-05-02 15:57:52] Importing $interpreter3.YpU9Qimmak1fj8YLaVEGMZxmxpQ=.trap.gz (173 of 372)
+[2025-05-02 15:57:52] Importing $stdlib_33.AKjAcaqiRAbeMIEBEZByrkAxfA4=.trap (174 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-020_0_3.py.J3rA9hwBo9cmiCHqjn0s4Jxins0=.trap.gz (175 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-020_0_4.py.fnNlwL7PyckBursEX6EuzZqkcM0=.trap.gz (176 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-020_1_0.py.fFI-glEvOJHRU3jyYrYQ_UIElck=.trap.gz (177 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-020_4_4.py.cVoM_fT_pxxIIHq3JNECRZnQB74=.trap.gz (178 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-022_0_5.py.1YCzxZn-h71neb-qV96p8_7hmAc=.trap.gz (179 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-022_1_0.py.lFJVjDoarjZ8LLmzZZSmAkdtP04=.trap.gz (180 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-022_2_2.py.a7BLoICD-P4wsNOQE_mjQFj1n3A=.trap.gz (181 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-022_3_5.py.WtK7DArPxc_1Gwp99yBXBpesd_Q=.trap.gz (182 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-022_4_5.py.4v_nU0tbyLBRHHR4-Y4Oq1wYXuk=.trap.gz (183 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-078_0_1.py.dJnnA3ECJ1PqgPdEPf5fgtxkNQo=.trap.gz (184 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-078_0_4.py.PqNParS0vmXV2m0zWzQJCmNbAAQ=.trap.gz (185 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-078_1_4.py.AsIbuCnsB_A5xCQqJX4SwVO20WE=.trap.gz (186 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-078_3_1.py.sh0IP04ewq-aLPe49q5NL6ORgto=.trap.gz (187 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-078_4_1.py.XahS2gIv2BM5aeBEEXSO5XpP8oc=.trap.gz (188 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-079_0_0.py.UDF4r_D1zpt2jr23HZi_LRmD9-4=.trap.gz (189 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-079_2_0.py._tQrRsxCYOqIuD907tt6rJq-22o=.trap.gz (190 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-079_2_0.py.j2LulZc4U7iwirYLS_QF02bxk4U=.trap.gz (191 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-079_2_1.py.MlnRCgAH6G0_OTrvXWN9_ow68Hs=.trap.gz (192 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-079_2_4.py.2LFZIMIBouMLcOtip0Qz302-iUU=.trap.gz (193 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-079_4_1.py.xBJHz6BE-91KB6RdjPNxetNq3is=.trap.gz (194 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-089_0_2.py.izJcofaB0iZn1inbqJFOM9GiL60=.trap.gz (195 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-089_1_0.py.Y4RwTXIaTwi_CQIPyjGbjGfLJOM=.trap.gz (196 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-089_1_4.py.xh8pecxNSN4dTLUR5npqJpelqFo=.trap.gz (197 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-089_2_1.py.gVw44WK4J9uyQb48nuNQyMIlN3c=.trap.gz (198 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-089_3_3.py.cuJkUJV3NGAy8v40Pwc8Od2hFH4=.trap.gz (199 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-089_4_3.py.2rubMYL36W5IIedfA58u8ZEJ2gc=.trap.gz (200 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-094_0_2.py.e6aOiqximoJeD_CP_NGdldSm7TY=.trap.gz (201 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-094_0_3.py.QwGzBn_KXg_Nz7VAfmgZaLsFZRg=.trap.gz (202 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-094_3_1.py.zYWZHkNcv1UfPZwN9EtED5lxlEM=.trap.gz (203 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-094_3_3.py.FxjOoJG9fBa0Ls02USKMV3wd-HA=.trap.gz (204 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-117_1_0.py.-ZIbelJGtNT-QwjaF9AmT4tCYv4=.trap.gz (205 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-117_1_1.py.tM1-pWzLXAQcKyJMHQng8JeoMLI=.trap.gz (206 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-117_1_2.py.7bVKSKnZXjBmwvshaWif7_PFQPY=.trap.gz (207 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-117_1_4.py.svr2LY31mCZdqRnyQ2RZUE7YDRg=.trap.gz (208 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-117_4_0.py.vmOtegXLijSwNnYJSXJVcfh5o7E=.trap.gz (209 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-502_1_0.py.ngLFZUYd9_uzcrmDCit7TKskpU0=.trap.gz (210 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-502_1_1.py.5EJtdHTzXd2ZVcP9I-jbNF0wOn0=.trap.gz (211 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-502_1_1.py.pJ7IjGn0J6TTZ11_Beu6qg1tAIM=.trap.gz (212 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-502_3_0.py.TGHUmYXOAg7C7FAllNH6O_-sZM4=.trap.gz (213 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-502_3_1.py.oDZpFr5IoXLNRkuStzpnzWHxVqA=.trap.gz (214 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-502_3_3.py.pSnxvmBd1YI1-2-BONfwGDPJ4P4=.trap.gz (215 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-502_3_4.py.-hC0ODH3Gmqz1IGg7Q8xoOX5at0=.trap.gz (216 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-502_4_0.py.jnqLrJyhdfX_03bDA_oLT6xmPpI=.trap.gz (217 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-502_4_3.py.pP7RWRreBhd4OlrqY7KcYHlztjg=.trap.gz (218 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-601_0_0.py.rbtM6xLT4IpKIRAuQLoRJ34VjSg=.trap.gz (219 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-601_0_1.py.CcRIHojwGRlj-ZPrCEug-_O9jQo=.trap.gz (220 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-601_0_4.py.hoI2XTJObE_g0GwFFoO7nZ9vO_Y=.trap.gz (221 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-601_2_1.py.hXL-L2ZoqmpyAxMYICU_8zwj_aI=.trap.gz (222 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-601_2_3.py.93M1-DbDoxxnenpvFJmNJSqRld8=.trap.gz (223 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-601_3_2.py.hDSO-XC8TikMS5Ay9ROEEvvypeM=.trap.gz (224 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-601_3_4.py.hYCjFo26l4qdWg0W8rsSCJ99pKY=.trap.gz (225 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-601_4_0.py.aaBRPHeh4kcoyzrWd27wV3ZToDQ=.trap.gz (226 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-601_4_1.py.i72DiYxcCee637hGLtUfm7ZyhFk=.trap.gz (227 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-611_0_0.py._CHTzx-qIfouL7VFYs566SWbg-g=.trap.gz (228 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-611_0_0.py.g4xVW2ba3xeMP8BcmqXfhQbn9H8=.trap.gz (229 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-611_0_1.py.lpyYdtlavZ4xajwVY7tU86MUcbA=.trap.gz (230 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-611_0_2.py.MmkbabBWXfzVV7Lwi-Lq-N4b5CI=.trap.gz (231 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-611_1_2.py.IZbPlj9jkY9x8mmac3CHjXatLhA=.trap.gz (232 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-611_1_3.py.CPs2TFsL0A01XFx1BSHryUo7PnA=.trap.gz (233 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-611_2_3.py.sH-Vovmyxwlmr7FL4tfWYE4jWbY=.trap.gz (234 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-611_4_1.py.NAfTQxy_QX65_28QpN6jYLFBj-k=.trap.gz (235 of 372)
+[2025-05-02 15:57:52] Importing codellama_CWE-611_4_4.py.xWAui--IYWT5KlBBQ0WpGpd3jGU=.trap.gz (236 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-020_0_2.py.mDu55VsWLZyNgLkX-aJZa6T20VU=.trap.gz (237 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-020_0_4.py.geoWWU-WI0Y6MRry2b1sHnJw_YI=.trap.gz (238 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-020_0_5.py.n-s29Ev8xvHIsMdkPor-RyozSV0=.trap.gz (239 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-020_1_0.py.yzVtuWp1L1_oCVnFtB7o8baCEEg=.trap.gz (240 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-020_1_1.py.--FA4w9m4zWBdCmzunb_cauhSuI=.trap.gz (241 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-020_1_4.py.igte5wnmvJYCx3XoH43CmYeein0=.trap.gz (242 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-020_2_1.py.5lvV83IDarh99HXGo4RSuvf-2Qg=.trap.gz (243 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-020_2_4.py.ORRnxHzlwMALOFDTN34F7lHKT9U=.trap.gz (244 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-020_2_5.py.Y-UD2UtOkYHJtfTTHPSk8No93r0=.trap.gz (245 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-020_3_1.py.-LnxV7bIaLb-hG2-13d4qPohLsY=.trap.gz (246 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-020_3_4.py.2FInecsKVpkMZId4LfhsUgXLcGc=.trap.gz (247 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-020_3_5.py.-sxIRYxtvhwRId564XLDw3eVl1Q=.trap.gz (248 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-020_4_0.py.V8-RdfXy7eSkS_zmJBNw6TdOLLs=.trap.gz (249 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-022_0_3.py.Xeg5KIaVeCwTnpyajLqQrMs-MaQ=.trap.gz (250 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-022_1_0.py.yuQtdix4HZ9jhHfgJfTJbXTFmZA=.trap.gz (251 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-022_1_1.py.7CUMwEQZDX5kmKfcPOj6Pab6eZQ=.trap.gz (252 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-022_1_2.py.HUbVKXO4ImZZDVnBNvE_EyJOhkk=.trap.gz (253 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-022_1_4.py._9LGtJxVbMC_U0MThuaQvSK6n_Q=.trap.gz (254 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-022_1_4.py.yIl1_jO46uSnOPuAKEPmyyyvcv0=.trap.gz (255 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-022_1_5.py.gz3tWp90i3ecOPOdRNZRwxGePOA=.trap.gz (256 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-022_1_5.py.qUmrhqgQJ4YStHdU41QBD5ZVX2Y=.trap.gz (257 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-022_2_0.py.YsnkzMhAja6HmsAEOJyaRTuCfPg=.trap.gz (258 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-022_2_1.py.sv2tKal-7BqCaG3Zo1oSg6oDX4Y=.trap.gz (259 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-022_2_2.py.lbkhmZRBEblX-UhgIx0r8DlElpg=.trap.gz (260 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-022_2_4.py.t6Iqm4JcinkJz77bqumVbFdY_Ag=.trap.gz (261 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-022_2_5.py.fL0jtxUO1CGE61JdXCDBW_UkGsY=.trap.gz (262 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-022_3_0.py.Hohz7wQ9GjqMpBnbqnEWUKfUt6k=.trap.gz (263 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-022_3_1.py.ko2-87y-DGW27Z32QMCm9Cr-Wug=.trap.gz (264 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-022_3_4.py.wFwmZyinfnPC2axObMazlf2EvzM=.trap.gz (265 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-022_3_5.py.YbMSeML4JW6JTc-f4i87gnEp_s4=.trap.gz (266 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-078_0_0.py.9WXdOo6RyceUbx7_9q3rrsIGHNg=.trap.gz (267 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-078_0_1.py.uQ-OzGNNplFJXSdlUpH5vQPOZK8=.trap.gz (268 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-078_0_2.py.YF5CObv7JtxxNtfVmFd0JkBpyw8=.trap.gz (269 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-078_0_3.py.T0dULNvFzZ-EytRrq3_DDC5rARU=.trap.gz (270 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-078_2_0.py.qYMys1tzfU6OQtCfuWRBEXys_BY=.trap.gz (271 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-078_2_1.py.WWI_ET1_-fijdUIOrtIGagPFyng=.trap.gz (272 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-078_2_2.py.PvwH8rVEmIcAgmAI7d2bGtmYseY=.trap.gz (273 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-078_2_3.py.G1QWeRhX5Blfjj8CONHOEEq01CY=.trap.gz (274 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-078_2_4.py.b5ptgkk0lt10akjSVUZKi1xSeJs=.trap.gz (275 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-078_2_5.py.dOjfnlBfjiVbupuKg_VZN29Huy8=.trap.gz (276 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-078_3_2.py.Twdut9FSU6HgBDs6d0cm-xeh0aw=.trap.gz (277 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-078_3_3.py.Nq44DHzx2iD8IKQ91qwMBZL4U4Q=.trap.gz (278 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-078_3_5.py.TCRCX13c5ivrLLxH5y8syRqOMz0=.trap.gz (279 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-079_0_0.py.ICjEvvTOHqlVwf20THxDEOvIyKY=.trap.gz (280 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-079_0_1.py._uA5Xbw9mGgPKWgCDlyEustlobI=.trap.gz (281 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-079_1_0.py.nE1ysvwU46Ze5zOH0oPr-v6DDvI=.trap.gz (282 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-079_1_1.py.gCApNE06GcJ9J4GWCnWGPqp8XvM=.trap.gz (283 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-079_2_0.py.o34XNdGEe6ghBpmYKoUNwDmipM8=.trap.gz (284 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-079_2_4.py.t44Shv8OA8fHz1chkAbcVYZbvzs=.trap.gz (285 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-079_3_2.py.P9PYa2fP8PCCZImkR39DPWb1bgs=.trap.gz (286 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-079_3_3.py.7n_9jBRqOvWlkZRoideDferUPto=.trap.gz (287 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-079_3_4.py.nw5KfDc9_ATCyLWMnfiNfx5dEI8=.trap.gz (288 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-079_4_1.py.JI_LDx_oJuuwYxBaKNeVZY0hAIo=.trap.gz (289 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-079_4_2.py.Io5mOKuPLPgy-LqMEgonY09vAvg=.trap.gz (290 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-079_4_3.py.675O3WJtOHdDicIofz2ZH5xepQE=.trap.gz (291 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-079_4_4.py.1SJg6ttqQxABdL4Ru5QaazJ7JBE=.trap.gz (292 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-089_0_0.py.hZ0ZRo9swkAd9n_n2jgXySgH-lc=.trap.gz (293 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-089_0_2.py.Xpqwif5_43smpi2ZFfzrpvDampw=.trap.gz (294 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-089_0_4.py.EJ0M4R_zTh0H37XxlV6SQjaHrAs=.trap.gz (295 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-089_1_0.py.0HUR2kpgYPJA7DOMDCsXC4-xxOI=.trap.gz (296 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-089_1_4.py.cI0aztcLg7l9R_IWATPgVLZe-xM=.trap.gz (297 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-089_2_1.py.eDghe483L8oshLV-TZFHzJC3TFU=.trap.gz (298 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-089_2_5.py.wYvXYQNVljq5qMBTWT7wBUtq2mA=.trap.gz (299 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-089_3_0.py.qB5joSyOJWfU8OH9vBwnzAnLerE=.trap.gz (300 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-089_4_0.py.QwBYlt3PMyv-syFRDIlvdIevFxk=.trap.gz (301 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-089_4_4.py.5C5ot3ar4O2UhFTtsTPlPRHV3RM=.trap.gz (302 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-089_4_5.py.yh7qeeOGSFeodlmVuvw_ROjNPUc=.trap.gz (303 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-094_0_0.py.5uJet-GMOLEDhnapAkWJPy593XY=.trap.gz (304 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-094_0_1.py.hK306I7zy7njm4lx5EKpeZm3Z4M=.trap.gz (305 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-094_0_2.py.ixRW2md893QFeApZFcwpqfzSJ0o=.trap.gz (306 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-094_0_3.py.Kr3bwlSdfMmZtO0Gfj-nUq04qtQ=.trap.gz (307 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-094_0_4.py.A3_EYbPhNOsNAOjhWcPXTutJaXI=.trap.gz (308 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-094_0_5.py.ZNbb1GL37wyFFApK7MmKrv7Hxn4=.trap.gz (309 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-094_1_4.py.zfHQbDBbd7cr56aLKEIQDIwVwuE=.trap.gz (310 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-094_1_5.py.IDET5w3RD0aIp7KcIIjIUB2QV7I=.trap.gz (311 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-094_3_2.py.qsNSK6NGnFVGMkpoafCrBILqjcw=.trap.gz (312 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-094_3_3.py.bZxEKIFbLstjw3hJLzdQczRsYk4=.trap.gz (313 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-094_3_4.py.0DtsJrK2FFR3woxO4GwXEqy3eLI=.trap.gz (314 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-117_1_0.py.AvOLhcofI4P4Is_kqc1nCY19bcc=.trap.gz (315 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-117_1_1.py.20o7BD1NA8ersskyaFfhEWN6lOM=.trap.gz (316 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-117_1_1.py.zeJBh2eIODF1cqDOurmg1ZiaDS0=.trap.gz (317 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-117_1_2.py._Gj9N7eONk2uLeFVyRtYhBMOLRY=.trap.gz (318 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-117_1_3.py.80XlUrC6z2Es77_6Ukja120V8Gk=.trap.gz (319 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-117_1_4.py.nySFnTtHPTKzl8AxVAbMrLDXjV0=.trap.gz (320 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-117_1_5.py.mHZaD9GaxWgQXDGNDy1Z93LLNQA=.trap.gz (321 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-117_2_0.py.UBSA5I8jXDaXsF2QdDvg1J_V6cs=.trap.gz (322 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-117_2_1.py._NrvcuN1kuUHE0sax9klyCd-cDY=.trap.gz (323 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-117_2_4.py.3gHVBdTuKase28RSXRazdbh0o84=.trap.gz (324 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-117_2_5.py.KiHypPUAUge959gncH7qu5iuC_M=.trap.gz (325 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-117_4_0.py.HBh30ubPzlMa99XHwAsayuPjloM=.trap.gz (326 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-117_4_0.py.I6ipZ7lVzYj3-Z1RN90SknxBO0Y=.trap.gz (327 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-117_4_1.py.hotGZLDAJM_-pC1LA3d2BTF5l28=.trap.gz (328 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-117_4_3.py.wNp1rwf-ziCoDIYPqU5yAQZQe30=.trap.gz (329 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-117_4_4.py.wtGRTe6k1_7Xw7CdPb1fnx9bT9E=.trap.gz (330 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-117_4_5.py.H-2ge0r_i-8gYcQ1XsKTvTK4WO0=.trap.gz (331 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-502_0_0.py.eHlx97wfjGq135KW0Ixvn4ffwHY=.trap.gz (332 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-502_0_4.py.Fyp0XxFQ1z7fUQm8vRQGS_VMkQs=.trap.gz (333 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-502_1_0.py.sGUgsWuFgAoZ-cz0mSs4ZLPY9NA=.trap.gz (334 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-502_1_1.py.PIMK_S1XrXZAIWF6nyVmNtf8u88=.trap.gz (335 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-502_1_3.py.6vLkI6Shd-65n6I-OruCf0PRUkI=.trap.gz (336 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-502_2_0.py.48OSoGsF8DrvS6G40f-PPfZLdUI=.trap.gz (337 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-502_2_2.py.q8Zejz_XTBMtVHIjifcqNjfXgkE=.trap.gz (338 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-502_2_3.py.PkkRE-EO7iuMPfyGrdnnQnsd0wQ=.trap.gz (339 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-502_2_5.py.-9t03KcVFuJYnL_9ulC1Cmto3eY=.trap.gz (340 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-502_4_1.py.Gz3lMaI0OO68IqFMOSJFXH89TcY=.trap.gz (341 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-502_4_3.py.VXlefa2zaUNaR5l_Bag478AGfbA=.trap.gz (342 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-601_0_1.py.puR0H_O1jNDEXLJFAIMD5Lx5b9k=.trap.gz (343 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-601_0_2.py.Nym1qMoqlH-RQGKl1UGWQLn6XZk=.trap.gz (344 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-601_0_3.py.v2UIwZ50Yoq76t-LCfpoOoPK_bQ=.trap.gz (345 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-601_1_3.py.DHFjDgVmNZ2bhYbYpfwSQHT5c7U=.trap.gz (346 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-601_1_3.py.WEjPchrqPi5KGrQNC02W2kdis2Q=.trap.gz (347 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-601_2_4.py.hFFLqpjK5jnpPWslUhkFpY6XfJA=.trap.gz (348 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-601_2_4.py.lvsA_KTYbDOXLpRqzfKcWkXHi4I=.trap.gz (349 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-601_3_0.py.KarzSrCG6c5woitLpsGdXE0-A4w=.trap.gz (350 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-601_3_1.py.Cax5wh7MsD4cVh3KrlLWyIxXnHs=.trap.gz (351 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-601_3_3.py.ivu2h5lVN_v4UQ7CqIntQZdP6M4=.trap.gz (352 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-601_3_4.py.dF0XfySMLvZ4psYta99YOaG5uEs=.trap.gz (353 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-601_4_0.py.ff_U9L6As-RmqrtIcSefpwUA6Nc=.trap.gz (354 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-601_4_3.py.MDOCvnuMmStzZn05DINgChk3YtM=.trap.gz (355 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-611_0_0.py.zKxc8K0ZCVOo1igNFb89uXOftKw=.trap.gz (356 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-611_0_1.py.owTZPxfZRMnF_ijida61-Bl0YUs=.trap.gz (357 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-611_0_3.py.klRojBrof20kVk3JvsKEDOmQ9gs=.trap.gz (358 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-611_0_4.py.ef_1_ZdGwNgYFqEKtTApFx5HNW0=.trap.gz (359 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-611_1_0.py.t5r2lzfIkvOgz9g3DC7OF2t0OWc=.trap.gz (360 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-611_1_2.py.cjrZGI6XdEqwT8zC1iJFCOkHscY=.trap.gz (361 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-611_1_3.py.wgsh0zqy7d5Nkm59uhJ1JO_1p1g=.trap.gz (362 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-611_1_4.py.WfusWN1bh_zEyJI3Z1DSlHTkREk=.trap.gz (363 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-611_1_5.py.UC0zLYwPFcvWfTGF1ZV6pfC8n1g=.trap.gz (364 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-611_4_1.py.N330Ns9pyZQ8NNimtWGNFn5dQUM=.trap.gz (365 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-611_4_3.py.9UTiTuCvnA6ta5RRH7IW1DdCEJ8=.trap.gz (366 of 372)
+[2025-05-02 15:57:52] Importing gpt4_CWE-611_4_5.py.XGoHz3NKLrxoGicqTZ7oiossQl4=.trap.gz (367 of 372)
+[2025-05-02 15:57:52] Importing json.UBogBq5ouy-agUPliknBKtCzQrc=.trap.gz (368 of 372)
+[2025-05-02 15:57:52] Importing logging.OuGOBEqe-DK1aTrRlbtiiqpLQI0=.trap.gz (369 of 372)
+[2025-05-02 15:57:52] Importing metadata.trap.gz (370 of 372)
+[2025-05-02 15:57:52] Importing sys.1P3MeO1IsytPW87hmuuqtfHktBA=.trap.gz (371 of 372)
+[2025-05-02 15:57:52] Importing urllib.CNrLY06m7Ukw3T1Y_ilF4-NCQzE=.trap.gz (372 of 372)
+[2025-05-02 15:57:52] [PROGRESS] dataset import> Merging relations
+[2025-05-02 15:57:52] Merging 1 fragment for 'files'.
+[2025-05-02 15:57:52] Merged 394 bytes for 'files'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'folders'.
+[2025-05-02 15:57:52] Merged 78 bytes for 'folders'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'containerparent'.
+[2025-05-02 15:57:52] Merged 294 bytes for 'containerparent'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_flags_versioned'.
+[2025-05-02 15:57:52] Merged 180 bytes for 'py_flags_versioned'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_cobjects'.
+[2025-05-02 15:57:52] Merged 5828 bytes (5.69 KiB) for 'py_cobjects'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_cobjecttypes'.
+[2025-05-02 15:57:52] Merged 8734 bytes (8.53 KiB) for 'py_cobjecttypes'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_cobject_sources'.
+[2025-05-02 15:57:52] Merged 8007 bytes (7.82 KiB) for 'py_cobject_sources'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_cobjectnames'.
+[2025-05-02 15:57:52] Merged 8402 bytes (8.21 KiB) for 'py_cobjectnames'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_cmembers_versioned'.
+[2025-05-02 15:57:52] Merged 6299 bytes (6.15 KiB) for 'py_cmembers_versioned'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_special_objects'.
+[2025-05-02 15:57:52] Merged 135 bytes for 'py_special_objects'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_citems'.
+[2025-05-02 15:57:52] Merged 430 bytes for 'py_citems'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'ext_rettype'.
+[2025-05-02 15:57:52] Merged 4025 bytes (3.93 KiB) for 'ext_rettype'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'ext_argtype'.
+[2025-05-02 15:57:52] Merged 6817 bytes (6.66 KiB) for 'ext_argtype'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'ext_argreturn'.
+[2025-05-02 15:57:52] Merged 41 bytes for 'ext_argreturn'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'ext_proptype'.
+[2025-05-02 15:57:52] Merged 345 bytes for 'ext_proptype'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_Modules'.
+[2025-05-02 15:57:52] Merged 204 bytes for 'py_Modules'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_module_path'.
+[2025-05-02 15:57:52] Merged 481 bytes for 'py_module_path'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'variable'.
+[2025-05-02 15:57:52] Merged 10628 bytes (10.38 KiB) for 'variable'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_extracted_version'.
+[2025-05-02 15:57:52] Merged 214 bytes for 'py_extracted_version'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_stmt_lists'.
+[2025-05-02 15:57:52] Merged 4989 bytes (4.87 KiB) for 'py_stmt_lists'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_stmts'.
+[2025-05-02 15:57:52] Merged 11568 bytes (11.30 KiB) for 'py_stmts'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_scopes'.
+[2025-05-02 15:57:52] Merged 16800 bytes (16.41 KiB) for 'py_scopes'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_alias_lists'.
+[2025-05-02 15:57:52] Merged 851 bytes for 'py_alias_lists'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_aliases'.
+[2025-05-02 15:57:52] Merged 1695 bytes (1.66 KiB) for 'py_aliases'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_exprs'.
+[2025-05-02 15:57:52] Merged 50042 bytes (48.87 KiB) for 'py_exprs'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_ints'.
+[2025-05-02 15:57:52] Merged 643 bytes for 'py_ints'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_strs'.
+[2025-05-02 15:57:52] Merged 14425 bytes (14.09 KiB) for 'py_strs'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_bools'.
+[2025-05-02 15:57:52] Merged 336 bytes for 'py_bools'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_variables'.
+[2025-05-02 15:57:52] Merged 10547 bytes (10.30 KiB) for 'py_variables'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_expr_contexts'.
+[2025-05-02 15:57:52] Merged 16747 bytes (16.35 KiB) for 'py_expr_contexts'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_arguments'.
+[2025-05-02 15:57:52] Merged 676 bytes for 'py_arguments'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_expr_lists'.
+[2025-05-02 15:57:52] Merged 9497 bytes (9.27 KiB) for 'py_expr_lists'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_Functions'.
+[2025-05-02 15:57:52] Merged 680 bytes for 'py_Functions'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_parameter_lists'.
+[2025-05-02 15:57:52] Merged 162 bytes for 'py_parameter_lists'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_cmpop_lists'.
+[2025-05-02 15:57:52] Merged 749 bytes for 'py_cmpop_lists'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_cmpops'.
+[2025-05-02 15:57:52] Merged 872 bytes for 'py_cmpops'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_boolops'.
+[2025-05-02 15:57:52] Merged 188 bytes for 'py_boolops'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_exports'.
+[2025-05-02 15:57:52] Merged 1059 bytes (1.03 KiB) for 'py_exports'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_flow_bb_node'.
+[2025-05-02 15:57:52] Merged 49082 bytes (47.93 KiB) for 'py_flow_bb_node'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_scope_flow'.
+[2025-05-02 15:57:52] Merged 7841 bytes (7.66 KiB) for 'py_scope_flow'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_successors'.
+[2025-05-02 15:57:52] Merged 32091 bytes (31.34 KiB) for 'py_successors'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_true_successors'.
+[2025-05-02 15:57:52] Merged 1122 bytes (1.10 KiB) for 'py_true_successors'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_false_successors'.
+[2025-05-02 15:57:52] Merged 1124 bytes (1.10 KiB) for 'py_false_successors'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_idoms'.
+[2025-05-02 15:57:52] Merged 26587 bytes (25.96 KiB) for 'py_idoms'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_ssa_var'.
+[2025-05-02 15:57:52] Merged 4313 bytes (4.21 KiB) for 'py_ssa_var'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_ssa_defn'.
+[2025-05-02 15:57:52] Merged 3242 bytes (3.17 KiB) for 'py_ssa_defn'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_ssa_use'.
+[2025-05-02 15:57:52] Merged 5685 bytes (5.55 KiB) for 'py_ssa_use'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'locations_ast'.
+[2025-05-02 15:57:52] Merged 71519 bytes (69.84 KiB) for 'locations_ast'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_scope_location'.
+[2025-05-02 15:57:52] Merged 1831 bytes (1.79 KiB) for 'py_scope_location'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_comments'.
+[2025-05-02 15:57:52] Merged 2879 bytes (2.81 KiB) for 'py_comments'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_codelines'.
+[2025-05-02 15:57:52] Merged 894 bytes for 'py_codelines'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_commentlines'.
+[2025-05-02 15:57:52] Merged 911 bytes for 'py_commentlines'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_docstringlines'.
+[2025-05-02 15:57:52] Merged 736 bytes for 'py_docstringlines'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_alllines'.
+[2025-05-02 15:57:52] Merged 885 bytes for 'py_alllines'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'numlines'.
+[2025-05-02 15:57:52] Merged 782 bytes for 'numlines'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_locations'.
+[2025-05-02 15:57:52] Merged 29856 bytes (29.16 KiB) for 'py_locations'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_unaryops'.
+[2025-05-02 15:57:52] Merged 378 bytes for 'py_unaryops'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_numbers'.
+[2025-05-02 15:57:52] Merged 2015 bytes (1.97 KiB) for 'py_numbers'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_exception_successors'.
+[2025-05-02 15:57:52] Merged 3792 bytes (3.70 KiB) for 'py_exception_successors'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_dict_item_lists'.
+[2025-05-02 15:57:52] Merged 1308 bytes (1.28 KiB) for 'py_dict_item_lists'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_dict_items'.
+[2025-05-02 15:57:52] Merged 2286 bytes (2.23 KiB) for 'py_dict_items'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_ssa_phi'.
+[2025-05-02 15:57:52] Merged 246 bytes for 'py_ssa_phi'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_syntax_error_versioned'.
+[2025-05-02 15:57:52] Merged 60 bytes for 'py_syntax_error_versioned'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_StringPart_lists'.
+[2025-05-02 15:57:52] Merged 45 bytes for 'py_StringPart_lists'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_StringParts'.
+[2025-05-02 15:57:52] Merged 94 bytes for 'py_StringParts'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'py_operators'.
+[2025-05-02 15:57:52] Merged 48 bytes for 'py_operators'.
+[2025-05-02 15:57:52] Merging 1 fragment for 'sourceLocationPrefix'.
+[2025-05-02 15:57:52] Merged 17 bytes for 'sourceLocationPrefix'.
+[2025-05-02 15:57:52] Saving string and id pools to disk.
+[2025-05-02 15:57:52] Finished importing TRAP files.
+[2025-05-02 15:57:52] Read 7.14 MiB of uncompressed TRAP data.
+[2025-05-02 15:57:52] Uncompressed relation data size: 1.86 MiB
+[2025-05-02 15:57:52] Relation data size: 445.05 KiB (merge rate: 4.39 MiB/s)
+[2025-05-02 15:57:52] String pool size: 2.13 MiB
+[2025-05-02 15:57:52] ID pool size: 1.19 MiB
+[2025-05-02 15:57:52] [PROGRESS] dataset import> Finished writing database (relations: 445.05 KiB; string pool: 2.13 MiB).
+[2025-05-02 15:57:52] Pausing evaluation to close the cache at sequence stamp o+137
+[2025-05-02 15:57:52] The disk cache is freshly trimmed; leave it be.
+[2025-05-02 15:57:52] Unpausing evaluation
+[2025-05-02 15:57:52] Plumbing command codeql dataset import completed.
+[2025-05-02 15:57:52] [PROGRESS] database finalize> TRAP import complete (789ms).
+[2025-05-02 15:57:52] Running plumbing command: codeql database cleanup -- /scratch/qilong3/codelmsec/db-gpt4o-py
+[2025-05-02 15:57:52] [PROGRESS] database cleanup> Cleaning up existing TRAP files after import...
+[2025-05-02 15:57:52] [PROGRESS] database cleanup> TRAP files cleaned up (11ms).
+[2025-05-02 15:57:52] [PROGRESS] database cleanup> Cleaning up scratch directory...
+[2025-05-02 15:57:52] [PROGRESS] database cleanup> Scratch directory cleaned up (10ms).
+[2025-05-02 15:57:52] Running plumbing command: codeql dataset cleanup -- /scratch/qilong3/codelmsec/db-gpt4o-py/db-python
+[2025-05-02 15:57:52] [PROGRESS] dataset cleanup> Cleaning up dataset in /scratch/qilong3/codelmsec/db-gpt4o-py/db-python.
+[2025-05-02 15:57:52] Trimming disk cache at /scratch/qilong3/codelmsec/db-gpt4o-py/db-python/default/cache in mode trim.
+[2025-05-02 15:57:52] Sequence stamp origin is -6053930467270596357
+[2025-05-02 15:57:52] Pausing evaluation to quickly trim memory at sequence stamp o+0
+[2025-05-02 15:57:52] Unpausing evaluation
+[2025-05-02 15:57:52] Pausing evaluation to zealously trim disk at sequence stamp o+1
+[2025-05-02 15:57:52] Unpausing evaluation
+[2025-05-02 15:57:52] Trimming completed (1ms): Trimmed disposable data from cache.
+[2025-05-02 15:57:52] Pausing evaluation to close the cache at sequence stamp o+2
+[2025-05-02 15:57:52] The disk cache is freshly trimmed; leave it be.
+[2025-05-02 15:57:52] Unpausing evaluation
+[2025-05-02 15:57:52] [PROGRESS] dataset cleanup> Trimmed disposable data from cache.
+[2025-05-02 15:57:52] [PROGRESS] dataset cleanup> Finalizing dataset in /scratch/qilong3/codelmsec/db-gpt4o-py/db-python
+[2025-05-02 15:57:52] [DETAILS] dataset cleanup> Finished deleting ID pool from /scratch/qilong3/codelmsec/db-gpt4o-py/db-python (0ms).
+[2025-05-02 15:57:52] Plumbing command codeql dataset cleanup completed.
+[2025-05-02 15:57:52] Plumbing command codeql database cleanup completed with status 0.
+[2025-05-02 15:57:52] [PROGRESS] database finalize> Finished zipping source archive (117.65 KiB).
+[2025-05-02 15:57:52] Plumbing command codeql database finalize completed.
+[2025-05-02 15:57:52] [PROGRESS] database create> Successfully created database at /scratch/qilong3/codelmsec/db-gpt4o-py.
+[2025-05-02 15:57:52] Terminating normally.

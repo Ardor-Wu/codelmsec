@@ -1,0 +1,27 @@
+[2025-05-02 16:00:38] This is codeql database analyze db-gpt4o-py ./codql_qls_codelmsec/python --format=csv --output gpt4o-py-cwe.csv --threads=0 --download
+[2025-05-02 16:00:38] Log file was started late.
+[2025-05-02 16:00:38] [DETAILS] database analyze> Downloading queries...
+[2025-05-02 16:00:38] Running plumbing command: codeql pack download --format json --qlconfig-file=/scratch/qilong3/codelmsec/qlconfig.yml -- ./codql_qls_codelmsec/python
+[2025-05-02 16:00:38] [PROGRESS] pack download> Package specifications to check for download: ./codql_qls_codelmsec/python
+[2025-05-02 16:00:38] Calling plumbing command: codeql resolve queries --qlconfig-file=/scratch/qilong3/codelmsec/qlconfig.yml --format installedpacks ./codql_qls_codelmsec/python
+[2025-05-02 16:00:38] [PROGRESS] resolve queries> Recording pack reference your-org/custom-cwe-queries at /scratch/qilong3/codelmsec/codql_qls_codelmsec.
+[2025-05-02 16:00:38] [SPAMMY] resolve queries> Scanning for QL files at /scratch/qilong3/codelmsec/codql_qls_codelmsec/python.
+[2025-05-02 16:00:38] [SPAMMY] resolve queries> Found 40 QL files in /scratch/qilong3/codelmsec/codql_qls_codelmsec/python.
+[2025-05-02 16:00:38] Plumbing command codeql resolve queries completed:
+                      {
+                        "installedPacks" : [ ]
+                      }
+[2025-05-02 16:00:38] [PROGRESS] pack download> Did not need to download any packs.
+[2025-05-02 16:00:38] Plumbing command codeql pack download completed.
+[2025-05-02 16:00:38] [PROGRESS] database analyze> Running queries.
+[2025-05-02 16:00:38] Running plumbing command: codeql database run-queries --evaluator-log-level=5 --threads=0 --warnings=show --dynamic-join-order-mode=none --qlconfig-file=/scratch/qilong3/codelmsec/qlconfig.yml --no-rerun --interpret-passthrough=null,--format=csv,-o=/scratch/qilong3/codelmsec/gpt4o-py-cwe.csv,--max-paths=4,--csv-location-format=line-column,--print-diagnostics-summary,--print-metrics-summary,--threads=0,--qlconfig-file=/scratch/qilong3/codelmsec/qlconfig.yml,--,/scratch/qilong3/codelmsec/db-gpt4o-py,./codql_qls_codelmsec/python -- /scratch/qilong3/codelmsec/db-gpt4o-py ./codql_qls_codelmsec/python
+[2025-05-02 16:00:38] Calling plumbing command: codeql resolve ram --dataset=/scratch/qilong3/codelmsec/db-gpt4o-py/db-python --format=json
+[2025-05-02 16:00:38] [PROGRESS] resolve ram> Stringpool size measured as 2228634
+[2025-05-02 16:00:38] Plumbing command codeql resolve ram completed:
+                      [
+                        "-J-Xmx12874M",
+                        "--off-heap-ram=16017"
+                      ]
+[2025-05-02 16:00:38] Chaining via /tmp/codeql.B9uS7Dv2 to plumbing: execute queries -J-Xmx12874M --off-heap-ram=16017 --verbosity=progress --logdir=/scratch/qilong3/codelmsec/db-gpt4o-py/log --evaluator-log-level=5 --threads=0 --warnings=show --dynamic-join-order-mode=none --qlconfig-file=/scratch/qilong3/codelmsec/qlconfig.yml --no-rerun --interpret-passthrough=null,--format=csv,-o=/scratch/qilong3/codelmsec/gpt4o-py-cwe.csv,--max-paths=4,--csv-location-format=line-column,--print-diagnostics-summary,--print-metrics-summary,--threads=0,--qlconfig-file=/scratch/qilong3/codelmsec/qlconfig.yml,--,/scratch/qilong3/codelmsec/db-gpt4o-py,./codql_qls_codelmsec/python --output=/scratch/qilong3/codelmsec/db-gpt4o-py/results -- /scratch/qilong3/codelmsec/db-gpt4o-py/db-python ./codql_qls_codelmsec/python
+[2025-05-02 16:00:38] Plumbing command codeql database run-queries completed with status 70.
+[2025-05-02 16:00:38] Exiting with code 70

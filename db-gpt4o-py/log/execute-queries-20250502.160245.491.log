@@ -1,0 +1,324 @@
+[2025-05-02 16:02:45] This is codeql execute queries -J-Xmx12874M --off-heap-ram=16017 --verbosity=progress --logdir=/scratch/qilong3/codelmsec/db-gpt4o-py/log --evaluator-log-level=5 --threads=0 --warnings=show --dynamic-join-order-mode=none --qlconfig-file=/scratch/qilong3/codelmsec/qlconfig.yml --no-rerun --interpret-passthrough=null,--format=csv,-o=/scratch/qilong3/codelmsec/gpt4o-py-cwe.csv,--max-paths=4,--csv-location-format=line-column,--print-diagnostics-summary,--print-metrics-summary,--threads=0,--qlconfig-file=/scratch/qilong3/codelmsec/qlconfig.yml,--,/scratch/qilong3/codelmsec/db-gpt4o-py,./codql_qls_codelmsec/python --output=/scratch/qilong3/codelmsec/db-gpt4o-py/results -- /scratch/qilong3/codelmsec/db-gpt4o-py/db-python ./codql_qls_codelmsec/python
+[2025-05-02 16:02:45] Calling plumbing command: codeql resolve queries --qlconfig-file=/scratch/qilong3/codelmsec/qlconfig.yml --format=json -- ./codql_qls_codelmsec/python
+[2025-05-02 16:02:45] [PROGRESS] resolve queries> Recording pack reference your-org/custom-cwe-queries at /scratch/qilong3/codelmsec/codql_qls_codelmsec.
+[2025-05-02 16:02:45] [SPAMMY] resolve queries> Scanning for QL files at /scratch/qilong3/codelmsec/codql_qls_codelmsec/python.
+[2025-05-02 16:02:45] [SPAMMY] resolve queries> Found 40 QL files in /scratch/qilong3/codelmsec/codql_qls_codelmsec/python.
+[2025-05-02 16:02:45] Plumbing command codeql resolve queries completed:
+                      [
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-094/CodeInjection.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-209/StackTraceExposure.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-601/UrlRedirect.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-326/WeakCryptoKey.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-327/InsecureDefaultProtocol.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-327/BrokenCryptoAlgorithm.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-327/InsecureProtocol.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-327/WeakSensitiveDataHashing.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-918/PartialServerSideRequestForgery.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-918/FullServerSideRequestForgery.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-732/WeakFilePermissions.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-285/PamAuthorization.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-089/SqlInjection.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-020/IncompleteHostnameRegExp.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-020/IncompleteUrlSubstringSanitization.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-020/OverlyLargeRange.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-215/FlaskDebug.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-090/LdapInjection.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CVE-2018-1281/BindToAllInterfaces.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-295/MissingHostKeyValidation.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-295/RequestWithoutValidation.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-117/LogInjection.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-377/InsecureTemporaryFile.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-116/BadTagFilter.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-776/XmlBomb.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-312/CleartextStorage.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-312/CleartextLogging.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-798/HardcodedCredentials.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-352/CSRFProtectionDisabled.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-502/UnsafeDeserialization.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-730/RegexInjection.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-730/ReDoS.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-730/PolynomialReDoS.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-022/PathInjection.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-022/TarSlip.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-611/Xxe.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-078/CommandInjection.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-643/XpathInjection.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-079/ReflectedXss.ql",
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-079/Jinja2WithoutEscaping.ql"
+                      ]
+[2025-05-02 16:02:45] Creating executor with 192 threads.
+[2025-05-02 16:02:45] Calling plumbing command: codeql resolve extensions --qlconfig-file=/scratch/qilong3/codelmsec/qlconfig.yml --include-extension-row-locations ./codql_qls_codelmsec/python
+[2025-05-02 16:02:45] Calling plumbing command: codeql resolve queries --qlconfig-file=/scratch/qilong3/codelmsec/qlconfig.yml --allow-library-packs --format startingpacks -- ./codql_qls_codelmsec/python
+[2025-05-02 16:02:45] [PROGRESS] resolve queries> Recording pack reference your-org/custom-cwe-queries at /scratch/qilong3/codelmsec/codql_qls_codelmsec.
+[2025-05-02 16:02:45] [SPAMMY] resolve queries> Scanning for QL files at /scratch/qilong3/codelmsec/codql_qls_codelmsec/python.
+[2025-05-02 16:02:45] [SPAMMY] resolve queries> Found 40 QL files in /scratch/qilong3/codelmsec/codql_qls_codelmsec/python.
+[2025-05-02 16:02:45] Plumbing command codeql resolve queries completed:
+                      [
+                        "/scratch/qilong3/codelmsec/codql_qls_codelmsec"
+                      ]
+[2025-05-02 16:02:45] Calling plumbing command: codeql resolve extensions-by-pack --qlconfig-file=/scratch/qilong3/codelmsec/qlconfig.yml --include-extension-row-locations -- /scratch/qilong3/codelmsec/codql_qls_codelmsec
+[2025-05-02 16:02:45] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] your-org/custom-cwe-queries: not 0.0.1 {root: your-org/custom-cwe-queries@0.0.1}
+[2025-05-02 16:02:45] [SPAMMY] resolve extensions-by-pack> [DERIVATION] your-org/custom-cwe-queries: 0.0.1 {your-org/custom-cwe-queries: not 0.0.1 {root: your-org/custom-cwe-queries@0.0.1}}
+[2025-05-02 16:02:45] [SPAMMY] resolve extensions-by-pack> [DECISION 1] your-org/custom-cwe-queries: 0.0.1
+[2025-05-02 16:02:45] Plumbing command codeql resolve extensions-by-pack completed:
+                      {
+                        "models" : [ ],
+                        "data" : { },
+                        "threatModels" : { },
+                        "extensionPacks" : [ ]
+                      }
+[2025-05-02 16:02:45] Plumbing command codeql resolve extensions completed:
+                      {
+                        "models" : [ ],
+                        "data" : { },
+                        "threatModels" : { },
+                        "extensionPacks" : [ ]
+                      }
+[2025-05-02 16:02:45] [DETAILS] execute queries> Compiling in 7 threads.
+[2025-05-02 16:02:45] Calling plumbing command: codeql resolve library-path --qlconfig-file=/scratch/qilong3/codelmsec/qlconfig.yml --query=/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-601/UrlRedirect.ql --format=json
+[2025-05-02 16:02:45] Calling plumbing command: codeql resolve library-path --qlconfig-file=/scratch/qilong3/codelmsec/qlconfig.yml --query=/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-327/InsecureDefaultProtocol.ql --format=json
+[2025-05-02 16:02:45] Calling plumbing command: codeql resolve library-path --qlconfig-file=/scratch/qilong3/codelmsec/qlconfig.yml --query=/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-327/InsecureProtocol.ql --format=json
+[2025-05-02 16:02:45] Calling plumbing command: codeql resolve library-path --qlconfig-file=/scratch/qilong3/codelmsec/qlconfig.yml --query=/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-209/StackTraceExposure.ql --format=json
+[2025-05-02 16:02:45] Calling plumbing command: codeql resolve library-path --qlconfig-file=/scratch/qilong3/codelmsec/qlconfig.yml --query=/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-327/BrokenCryptoAlgorithm.ql --format=json
+[2025-05-02 16:02:45] Calling plumbing command: codeql resolve library-path --qlconfig-file=/scratch/qilong3/codelmsec/qlconfig.yml --query=/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-094/CodeInjection.ql --format=json
+[2025-05-02 16:02:45] Calling plumbing command: codeql resolve library-path --qlconfig-file=/scratch/qilong3/codelmsec/qlconfig.yml --query=/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-326/WeakCryptoKey.ql --format=json
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> Resolving query at normalized path /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-327/BrokenCryptoAlgorithm.ql.
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> Resolving query at normalized path /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-601/UrlRedirect.ql.
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> Resolving query at normalized path /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-327/InsecureProtocol.ql.
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> Resolving query at normalized path /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-327/InsecureDefaultProtocol.ql.
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> Resolving query at normalized path /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-326/WeakCryptoKey.ql.
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> Resolving query at normalized path /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-209/StackTraceExposure.ql.
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> Resolving query at normalized path /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-094/CodeInjection.ql.
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> Found enclosing pack 'your-org/custom-cwe-queries' at /scratch/qilong3/codelmsec/codql_qls_codelmsec.
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> Found enclosing pack 'your-org/custom-cwe-queries' at /scratch/qilong3/codelmsec/codql_qls_codelmsec.
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> Found enclosing pack 'your-org/custom-cwe-queries' at /scratch/qilong3/codelmsec/codql_qls_codelmsec.
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> Found enclosing pack 'your-org/custom-cwe-queries' at /scratch/qilong3/codelmsec/codql_qls_codelmsec.
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> Found enclosing pack 'your-org/custom-cwe-queries' at /scratch/qilong3/codelmsec/codql_qls_codelmsec.
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> Found enclosing pack 'your-org/custom-cwe-queries' at /scratch/qilong3/codelmsec/codql_qls_codelmsec.
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> Found enclosing pack 'your-org/custom-cwe-queries' at /scratch/qilong3/codelmsec/codql_qls_codelmsec.
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> Adding compilation cache at /home/qilong3/.codeql/compile-cache.
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> Adding compilation cache at /home/qilong3/.codeql/compile-cache.
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> Adding compilation cache at /home/qilong3/.codeql/compile-cache.
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> Adding compilation cache at /home/qilong3/.codeql/compile-cache.
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> Adding compilation cache at /home/qilong3/.codeql/compile-cache.
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> Adding compilation cache at /home/qilong3/.codeql/compile-cache.
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> Adding compilation cache at /home/qilong3/.codeql/compile-cache.
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> Resolving library dependencies from /scratch/qilong3/codelmsec/codql_qls_codelmsec/codeql-pack.yml.
+[2025-05-02 16:02:46] [SPAMMY] resolve library-path> [INCOMPATIBILITY] your-org/custom-cwe-queries: not 0.0.1 {root: your-org/custom-cwe-queries@0.0.1}
+[2025-05-02 16:02:46] [SPAMMY] resolve library-path> [DERIVATION] your-org/custom-cwe-queries: 0.0.1 {your-org/custom-cwe-queries: not 0.0.1 {root: your-org/custom-cwe-queries@0.0.1}}
+[2025-05-02 16:02:46] [SPAMMY] resolve library-path> [DECISION 1] your-org/custom-cwe-queries: 0.0.1
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> QL pack dependencies for /scratch/qilong3/codelmsec/codql_qls_codelmsec resolved OK.
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> Found no dbscheme through dependencies.
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> QL pack dependencies for /scratch/qilong3/codelmsec/codql_qls_codelmsec found in cache.
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> QL pack dependencies for /scratch/qilong3/codelmsec/codql_qls_codelmsec found in cache.
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> QL pack dependencies for /scratch/qilong3/codelmsec/codql_qls_codelmsec found in cache.
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> QL pack dependencies for /scratch/qilong3/codelmsec/codql_qls_codelmsec found in cache.
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> QL pack dependencies for /scratch/qilong3/codelmsec/codql_qls_codelmsec found in cache.
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> QL pack dependencies for /scratch/qilong3/codelmsec/codql_qls_codelmsec found in cache.
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> Found no dbscheme through dependencies.
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> Found no dbscheme through dependencies.
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> Found no dbscheme through dependencies.
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> Found no dbscheme through dependencies.
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> Found no dbscheme through dependencies.
+[2025-05-02 16:02:46] [DETAILS] resolve library-path> Found no dbscheme through dependencies.
+[2025-05-02 16:02:46] Plumbing command codeql resolve library-path completed:
+                      {
+                        "libraryPath" : [
+                          "/scratch/qilong3/codelmsec/codql_qls_codelmsec"
+                        ],
+                        "compilationCache" : [
+                          "/home/qilong3/.codeql/compile-cache"
+                        ],
+                        "relativeName" : "your-org/custom-cwe-queries/python/ql/src/Security/CWE-327/InsecureProtocol.ql",
+                        "possibleAdvice" : "You probably need to specify a libraryPathDependencies list in /scratch/qilong3/codelmsec/codql_qls_codelmsec/codeql-pack.yml.",
+                        "qlPackName" : "your-org/custom-cwe-queries"
+                      }
+[2025-05-02 16:02:46] Plumbing command codeql resolve library-path completed:
+                      {
+                        "libraryPath" : [
+                          "/scratch/qilong3/codelmsec/codql_qls_codelmsec"
+                        ],
+                        "compilationCache" : [
+                          "/home/qilong3/.codeql/compile-cache"
+                        ],
+                        "relativeName" : "your-org/custom-cwe-queries/python/ql/src/Security/CWE-326/WeakCryptoKey.ql",
+                        "possibleAdvice" : "You probably need to specify a libraryPathDependencies list in /scratch/qilong3/codelmsec/codql_qls_codelmsec/codeql-pack.yml.",
+                        "qlPackName" : "your-org/custom-cwe-queries"
+                      }
+[2025-05-02 16:02:46] Plumbing command codeql resolve library-path completed:
+                      {
+                        "libraryPath" : [
+                          "/scratch/qilong3/codelmsec/codql_qls_codelmsec"
+                        ],
+                        "compilationCache" : [
+                          "/home/qilong3/.codeql/compile-cache"
+                        ],
+                        "relativeName" : "your-org/custom-cwe-queries/python/ql/src/Security/CWE-327/InsecureDefaultProtocol.ql",
+                        "possibleAdvice" : "You probably need to specify a libraryPathDependencies list in /scratch/qilong3/codelmsec/codql_qls_codelmsec/codeql-pack.yml.",
+                        "qlPackName" : "your-org/custom-cwe-queries"
+                      }
+[2025-05-02 16:02:46] Plumbing command codeql resolve library-path completed:
+                      {
+                        "libraryPath" : [
+                          "/scratch/qilong3/codelmsec/codql_qls_codelmsec"
+                        ],
+                        "compilationCache" : [
+                          "/home/qilong3/.codeql/compile-cache"
+                        ],
+                        "relativeName" : "your-org/custom-cwe-queries/python/ql/src/Security/CWE-209/StackTraceExposure.ql",
+                        "possibleAdvice" : "You probably need to specify a libraryPathDependencies list in /scratch/qilong3/codelmsec/codql_qls_codelmsec/codeql-pack.yml.",
+                        "qlPackName" : "your-org/custom-cwe-queries"
+                      }
+[2025-05-02 16:02:46] Plumbing command codeql resolve library-path completed:
+                      {
+                        "libraryPath" : [
+                          "/scratch/qilong3/codelmsec/codql_qls_codelmsec"
+                        ],
+                        "compilationCache" : [
+                          "/home/qilong3/.codeql/compile-cache"
+                        ],
+                        "relativeName" : "your-org/custom-cwe-queries/python/ql/src/Security/CWE-094/CodeInjection.ql",
+                        "possibleAdvice" : "You probably need to specify a libraryPathDependencies list in /scratch/qilong3/codelmsec/codql_qls_codelmsec/codeql-pack.yml.",
+                        "qlPackName" : "your-org/custom-cwe-queries"
+                      }
+[2025-05-02 16:02:46] Plumbing command codeql resolve library-path completed:
+                      {
+                        "libraryPath" : [
+                          "/scratch/qilong3/codelmsec/codql_qls_codelmsec"
+                        ],
+                        "compilationCache" : [
+                          "/home/qilong3/.codeql/compile-cache"
+                        ],
+                        "relativeName" : "your-org/custom-cwe-queries/python/ql/src/Security/CWE-327/BrokenCryptoAlgorithm.ql",
+                        "possibleAdvice" : "You probably need to specify a libraryPathDependencies list in /scratch/qilong3/codelmsec/codql_qls_codelmsec/codeql-pack.yml.",
+                        "qlPackName" : "your-org/custom-cwe-queries"
+                      }
+[2025-05-02 16:02:46] Plumbing command codeql resolve library-path completed:
+                      {
+                        "libraryPath" : [
+                          "/scratch/qilong3/codelmsec/codql_qls_codelmsec"
+                        ],
+                        "compilationCache" : [
+                          "/home/qilong3/.codeql/compile-cache"
+                        ],
+                        "relativeName" : "your-org/custom-cwe-queries/python/ql/src/Security/CWE-601/UrlRedirect.ql",
+                        "possibleAdvice" : "You probably need to specify a libraryPathDependencies list in /scratch/qilong3/codelmsec/codql_qls_codelmsec/codeql-pack.yml.",
+                        "qlPackName" : "your-org/custom-cwe-queries"
+                      }
+[2025-05-02 16:02:46] [PROGRESS] execute queries> Compiling query plan for /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-327/InsecureProtocol.ql.
+[2025-05-02 16:02:46] [DETAILS] execute queries> Resolving imports for /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-327/InsecureProtocol.ql.
+[2025-05-02 16:02:46] [PROGRESS] execute queries> Compiling query plan for /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-327/InsecureDefaultProtocol.ql.
+[2025-05-02 16:02:46] [DETAILS] execute queries> Resolving imports for /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-327/InsecureDefaultProtocol.ql.
+[2025-05-02 16:02:46] [PROGRESS] execute queries> Compiling query plan for /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-327/BrokenCryptoAlgorithm.ql.
+[2025-05-02 16:02:46] [DETAILS] execute queries> Resolving imports for /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-327/BrokenCryptoAlgorithm.ql.
+[2025-05-02 16:02:46] [PROGRESS] execute queries> Compiling query plan for /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-326/WeakCryptoKey.ql.
+[2025-05-02 16:02:46] [DETAILS] execute queries> Resolving imports for /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-326/WeakCryptoKey.ql.
+[2025-05-02 16:02:46] [PROGRESS] execute queries> Compiling query plan for /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-601/UrlRedirect.ql.
+[2025-05-02 16:02:46] [DETAILS] execute queries> Resolving imports for /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-601/UrlRedirect.ql.
+[2025-05-02 16:02:46] [PROGRESS] execute queries> Compiling query plan for /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-094/CodeInjection.ql.
+[2025-05-02 16:02:46] [DETAILS] execute queries> Resolving imports for /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-094/CodeInjection.ql.
+[2025-05-02 16:02:46] [PROGRESS] execute queries> Compiling query plan for /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-209/StackTraceExposure.ql.
+[2025-05-02 16:02:46] [DETAILS] execute queries> Resolving imports for /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-209/StackTraceExposure.ql.
+[2025-05-02 16:02:46] Resolved file set for /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-601/UrlRedirect.ql hashes to f8fa66639bea24958d2158ab3114b7f4.
+[2025-05-02 16:02:46] Resolved file set for /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-209/StackTraceExposure.ql hashes to a3ddc16000d65b4cd43d92678e4ed58c.
+[2025-05-02 16:02:46] Resolved file set for /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-327/InsecureDefaultProtocol.ql hashes to 118e11a2d06ce815728e171ffcde03aa.
+[2025-05-02 16:02:46] [DETAILS] execute queries> Checking QL for /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-209/StackTraceExposure.ql.
+[2025-05-02 16:02:46] [DETAILS] execute queries> Checking QL for /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-327/InsecureDefaultProtocol.ql.
+[2025-05-02 16:02:46] [DETAILS] execute queries> Checking QL for /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-601/UrlRedirect.ql.
+[2025-05-02 16:02:46] Stale frontend caches are invalidated based on import graph reachability.
+[2025-05-02 16:02:46] Stale frontend caches are invalidated based on import graph reachability.
+[2025-05-02 16:02:46] Stale frontend caches are invalidated based on import graph reachability.
+[2025-05-02 16:02:46] Resolved file set for /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-094/CodeInjection.ql hashes to d34b5830b47cfc865fbffc27570261c6.
+[2025-05-02 16:02:46] Resolved file set for /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-327/BrokenCryptoAlgorithm.ql hashes to 264492dde980e9edfc20556acfc5cf06.
+[2025-05-02 16:02:46] Resolved file set for /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-326/WeakCryptoKey.ql hashes to f03576d100e3fd9137ea361d1e271722.
+[2025-05-02 16:02:46] Resolved file set for /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-327/InsecureProtocol.ql hashes to 04de646d6251edab21106a01f6296a77.
+[2025-05-02 16:02:46] [DETAILS] execute queries> Checking QL for /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-094/CodeInjection.ql.
+[2025-05-02 16:02:46] Stale frontend caches are invalidated based on import graph reachability.
+[2025-05-02 16:02:46] [DETAILS] execute queries> Checking QL for /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-327/InsecureProtocol.ql.
+[2025-05-02 16:02:46] Stale frontend caches are invalidated based on import graph reachability.
+[2025-05-02 16:02:46] [DETAILS] execute queries> Checking QL for /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-326/WeakCryptoKey.ql.
+[2025-05-02 16:02:46] Stale frontend caches are invalidated based on import graph reachability.
+[2025-05-02 16:02:46] [DETAILS] execute queries> Checking QL for /scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-327/BrokenCryptoAlgorithm.ql.
+[2025-05-02 16:02:46] Stale frontend caches are invalidated based on import graph reachability.
+[2025-05-02 16:02:46] ExternalModuleBindingPass ...
+[2025-05-02 16:02:46] ExternalModuleBindingPass ...
+[2025-05-02 16:02:46] ExternalModuleBindingPass ...
+[2025-05-02 16:02:46] ExternalModuleBindingPass ...
+[2025-05-02 16:02:46] ExternalModuleBindingPass ...
+[2025-05-02 16:02:46] ExternalModuleBindingPass ...
+[2025-05-02 16:02:46] ExternalModuleBindingPass ...
+[2025-05-02 16:02:46] ExternalModuleBindingPass time: 00:00.001
+[2025-05-02 16:02:46] ExternalModuleBindingPass time: 00:00.001
+[2025-05-02 16:02:46] ExternalModuleBindingPass time: 00:00.001
+[2025-05-02 16:02:46] ExternalModuleBindingPass time: 00:00.001
+[2025-05-02 16:02:46] ExternalModuleBindingPass time: 00:00.001
+[2025-05-02 16:02:46] ExternalModuleBindingPass time: 00:00.001
+[2025-05-02 16:02:46] CollectInstantiationsPass ...
+[2025-05-02 16:02:46] CollectInstantiationsPass ...
+[2025-05-02 16:02:46] CollectInstantiationsPass ...
+[2025-05-02 16:02:46] CollectInstantiationsPass ...
+[2025-05-02 16:02:46] CollectInstantiationsPass ...
+[2025-05-02 16:02:46] CollectInstantiationsPass ...
+[2025-05-02 16:02:46] CollectInstantiationsPass time: 00:00.003
+[2025-05-02 16:02:46] CollectInstantiationsPass time: 00:00.003
+[2025-05-02 16:02:46] CollectInstantiationsPass time: 00:00.003
+[2025-05-02 16:02:46] CollectInstantiationsPass time: 00:00.003
+[2025-05-02 16:02:46] CollectInstantiationsPass time: 00:00.003
+[2025-05-02 16:02:46] CollectInstantiationsPass time: 00:00.003
+[2025-05-02 16:02:46] Ql checks ...
+[2025-05-02 16:02:46] Ql checks ...
+[2025-05-02 16:02:46] Ql checks ...
+[2025-05-02 16:02:46] Ql checks ...
+[2025-05-02 16:02:46] Ql checks ...
+[2025-05-02 16:02:46] Ql checks ...
+[2025-05-02 16:02:46] ExternalModuleBindingPass time: 00:00.017
+[2025-05-02 16:02:46] CollectInstantiationsPass ...
+[2025-05-02 16:02:46] CollectInstantiationsPass time: 00:00.005
+[2025-05-02 16:02:46] Ql checks ...
+[2025-05-02 16:02:46] Ql checks time: 00:00.032
+[2025-05-02 16:02:46] Ql checks time: 00:00.032
+[2025-05-02 16:02:46] Ql checks time: 00:00.032
+[2025-05-02 16:02:46] Ql checks time: 00:00.032
+[2025-05-02 16:02:46] Ql checks time: 00:00.032
+[2025-05-02 16:02:46] Ql checks time: 00:00.032
+[2025-05-02 16:02:46] [ERROR] execute queries> ERROR: could not resolve module python (/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-327/BrokenCryptoAlgorithm.ql:13,8-14)
+[2025-05-02 16:02:46] [ERROR] execute queries> ERROR: could not resolve module semmle.python.Concepts (/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-327/BrokenCryptoAlgorithm.ql:14,8-30)
+[2025-05-02 16:02:46] [ERROR] execute queries> ERROR: could not resolve module Cryptography (/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-327/BrokenCryptoAlgorithm.ql:17,3-15)
+[2025-05-02 16:02:46] [ERROR] execute queries> ERROR: could not resolve module Cryptography (/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-327/BrokenCryptoAlgorithm.ql:17,51-63)
+[2025-05-02 16:02:46] [ERROR] execute queries> ERROR: could not resolve module Cryptography (/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-327/BrokenCryptoAlgorithm.ql:23,24-36)
+[2025-05-02 16:02:46] [ERROR] execute queries> ERROR: could not resolve module python (/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-601/UrlRedirect.ql:15,8-14)
+[2025-05-02 16:02:46] [ERROR] execute queries> ERROR: could not resolve module semmle.python.security.dataflow.UrlRedirectQuery (/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-601/UrlRedirect.ql:16,8-56)
+[2025-05-02 16:02:46] [ERROR] execute queries> ERROR: could not resolve module DataFlow (/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-601/UrlRedirect.ql:17,8-16)
+[2025-05-02 16:02:46] [ERROR] execute queries> ERROR: could not resolve type Configuration (/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-601/UrlRedirect.ql:19,6-19)
+[2025-05-02 16:02:46] [ERROR] execute queries> ERROR: could not resolve module DataFlow (/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-601/UrlRedirect.ql:19,28-36)
+[2025-05-02 16:02:46] [ERROR] execute queries> ERROR: could not resolve module DataFlow (/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-601/UrlRedirect.ql:19,55-63)
+[2025-05-02 16:02:46] [ERROR] execute queries> ERROR: could not resolve module python (/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-094/CodeInjection.ql:17,8-14)
+[2025-05-02 16:02:46] [ERROR] execute queries> ERROR: could not resolve module semmle.python.security.dataflow.CodeInjectionQuery (/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-094/CodeInjection.ql:18,8-58)
+[2025-05-02 16:02:46] [ERROR] execute queries> ERROR: could not resolve module DataFlow (/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-094/CodeInjection.ql:19,8-16)
+[2025-05-02 16:02:46] [ERROR] execute queries> ERROR: could not resolve type Configuration (/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-094/CodeInjection.ql:21,6-19)
+[2025-05-02 16:02:46] [ERROR] execute queries> ERROR: could not resolve module DataFlow (/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-094/CodeInjection.ql:21,28-36)
+[2025-05-02 16:02:46] [ERROR] execute queries> ERROR: could not resolve module DataFlow (/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-094/CodeInjection.ql:21,55-63)
+[2025-05-02 16:02:46] [ERROR] execute queries> ERROR: could not resolve module python (/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-326/WeakCryptoKey.ql:13,8-14)
+[2025-05-02 16:02:46] [ERROR] execute queries> ERROR: could not resolve module semmle.python.Concepts (/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-326/WeakCryptoKey.ql:14,8-30)
+[2025-05-02 16:02:46] [ERROR] execute queries> ERROR: could not resolve module semmle.python.dataflow.new.DataFlow (/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-326/WeakCryptoKey.ql:15,8-43)
+[2025-05-02 16:02:46] [ERROR] execute queries> ERROR: could not resolve module semmle.python.filters.Tests (/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-326/WeakCryptoKey.ql:16,8-35)
+[2025-05-02 16:02:46] [ERROR] execute queries> ERROR: could not resolve module Cryptography (/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-326/WeakCryptoKey.ql:18,6-18)
+[2025-05-02 16:02:46] [ERROR] execute queries> ERROR: could not resolve module DataFlow (/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-326/WeakCryptoKey.ql:18,66-74)
+[2025-05-02 16:02:46] [ERROR] execute queries> ERROR: could not resolve type TestScope (/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-326/WeakCryptoKey.ql:22,48-57)
+[2025-05-02 16:02:46] [ERROR] execute queries> ERROR: could not resolve module python (/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-209/StackTraceExposure.ql:16,8-14)
+[2025-05-02 16:02:46] [ERROR] execute queries> ERROR: could not resolve module semmle.python.security.dataflow.StackTraceExposureQuery (/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-209/StackTraceExposure.ql:17,8-63)
+[2025-05-02 16:02:46] [ERROR] execute queries> ERROR: could not resolve module DataFlow (/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-209/StackTraceExposure.ql:18,8-16)
+[2025-05-02 16:02:46] [ERROR] execute queries> ERROR: could not resolve type Configuration (/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-209/StackTraceExposure.ql:20,6-19)
+[2025-05-02 16:02:46] [ERROR] execute queries> ERROR: could not resolve module DataFlow (/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-209/StackTraceExposure.ql:20,28-36)
+[2025-05-02 16:02:46] [ERROR] execute queries> ERROR: could not resolve module DataFlow (/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-209/StackTraceExposure.ql:20,55-63)
+[2025-05-02 16:02:46] [ERROR] execute queries> ERROR: could not resolve module python (/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-327/InsecureDefaultProtocol.ql:21,8-14)
+[2025-05-02 16:02:46] [ERROR] execute queries> ERROR: could not resolve module semmle.python.ApiGraphs (/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-327/InsecureDefaultProtocol.ql:22,8-31)
+[2025-05-02 16:02:46] [ERROR] execute queries> ERROR: could not resolve module DataFlow (/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-327/InsecureDefaultProtocol.ql:24,6-14)
+[2025-05-02 16:02:46] [ERROR] execute queries> ERROR: could not resolve module API (/scratch/qilong3/codelmsec/codql_qls_codelmsec/python/ql/src/Security/CWE-327/InsecureDefaultProtocol.ql:26,10-13)
+[2025-05-02 16:02:46] Ql checks time: 00:00.070
+[2025-05-02 16:02:46] Sequence stamp origin is -6053929207923883276
+[2025-05-02 16:02:46] Pausing evaluation to close the cache at sequence stamp o+0
+[2025-05-02 16:02:46] The disk cache is freshly trimmed; leave it be.
+[2025-05-02 16:02:46] Unpausing evaluation
+[2025-05-02 16:02:46] This NaiveBuddyAllocator requested 0 eviction rounds.
+[2025-05-02 16:02:46] Exiting with code 2
