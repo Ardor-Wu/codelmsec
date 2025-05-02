@@ -4,4 +4,7 @@
     <option name="sdkName" value="Remote Python 3.10.16 (sftp://qilong3@madison.ece.illinois.edu:22/scratch/qilong3/anaconda3/envs/codelmsec/bin/python)" />
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="Remote Python 3.10.16 (sftp://qilong3@madison.ece.illinois.edu:22/scratch/qilong3/anaconda3/envs/codelmsec/bin/python)" project-jdk-type="Python SDK" />
+  <component name="PythonCompatibilityInspectionAdvertiser">
+    <option name="version" value="3" />
+  </component>
 </project>
